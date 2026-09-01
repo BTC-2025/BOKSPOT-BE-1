@@ -113,6 +113,7 @@ model Merchant {
   amenities     String[]        @default([])
   openingHours  Json?           @map("opening_hours")
   tags          String[]        @default([])
+  metadata      Json?
   socialLinks   Json?           @map("social_links")
   rating        Float           @default(0)
   reviewCount   Int             @default(0) @map("review_count")
