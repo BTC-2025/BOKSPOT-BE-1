@@ -84,7 +84,13 @@ let ServicesService = class ServicesService {
             };
         }
         if (filters?.city) {
-            where.merchant = { city: { contains: filters.city, mode: 'insensitive' } };
+            where.OR = [
+                { city: { contains: filters.city, mode: 'insensitive' } },
+                {
+                    city: null,
+                    merchant: { city: { contains: filters.city, mode: 'insensitive' } }
+                }
+            ];
         }
         if (filters?.latitude !== undefined && filters?.longitude !== undefined) {
             try {

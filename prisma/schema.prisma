@@ -165,6 +165,7 @@ model Service {
   shortDescription      String             @map("short_description") @db.VarChar(255)
   latitude              Float?
   longitude             Float?
+  city                  String?            @db.VarChar(100)
   serviceType           ServiceType        @default(APPOINTMENT) @map("service_type")
   durationMinutes       Int                @map("duration_minutes")
   bufferMinutes         Int                @default(0) @map("buffer_minutes")
@@ -207,6 +208,7 @@ model Service {
   @@index([merchantId])
   @@index([categoryId])
   @@index([serviceType])
+  @@index([city])
   @@index([isActive, isFeatured])
   @@index([deletedAt])
   @@map("services")

@@ -19,6 +19,7 @@ export class CreateServiceDto {
 
   @ApiPropertyOptional() @IsOptional() @IsNumber() latitude?: number;
   @ApiPropertyOptional() @IsOptional() @IsNumber() longitude?: number;
+  @ApiPropertyOptional() @IsOptional() @IsString() city?: string;
 
   // Dynamic fields
   @ApiPropertyOptional() @IsOptional() isTimingEnabled?: boolean;
