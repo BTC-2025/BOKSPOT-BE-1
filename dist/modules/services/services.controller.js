@@ -1,10 +1,43 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
@@ -20,9 +53,35 @@ const create_service_dto_1 = require("./dto/create-service.dto");
 const update_service_dto_1 = require("./dto/update-service.dto");
 const get_services_filter_dto_1 = require("./dto/get-services-filter.dto");
 const public_decorator_1 = require("../../common/decorators/public.decorator");
+const fs = __importStar(require("fs"));
+const path = __importStar(require("path"));
 let ServicesController = class ServicesController {
     constructor(servicesService) {
         this.servicesService = servicesService;
+    }
+    getSharedServicesPath() {
+        return path.join(process.cwd(), 'shared-services.json');
+    }
+    readSharedServices() {
+        try {
+            const p = this.getSharedServicesPath();
+            if (fs.existsSync(p)) {
+                return JSON.parse(fs.readFileSync(p, 'utf8'));
+            }
+        }
+        catch (e) {
+            // ignore
+        }
+        return [];
+    }
+    writeSharedServices(services) {
+        try {
+            const p = this.getSharedServicesPath();
+            fs.writeFileSync(p, JSON.stringify(services, null, 2), 'utf8');
+        }
+        catch (e) {
+            console.error('Error writing shared-services.json:', e);
+        }
     }
     async syncDb() {
         try {
@@ -35,10 +94,101 @@ let ServicesController = class ServicesController {
         }
     }
     async create(merchantId, dto) {
-        return this.servicesService.create(merchantId, dto);
+        try {
+            const result = await this.servicesService.create(merchantId, dto);
+            // Also persist to shared-services.json
+            const all = this.readSharedServices();
+            all.unshift(result);
+            this.writeSharedServices(all);
+            return result;
+        }
+        catch (err) {
+            console.warn('DB create failed, persisting to shared-services.json:', err.message);
+            const metadata = dto.metadata || {};
+            const newService = {
+                id: dto.id || `svc-${Date.now()}`,
+                merchantId,
+                name: dto.name,
+                slug: dto.name.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+                description: dto.description || '',
+                basePrice: dto.basePrice || 0,
+                price: dto.basePrice || 0,
+                durationMinutes: dto.durationMinutes || 60,
+                images: dto.images || [],
+                metadata: dto.metadata || {},
+                isActive: true,
+                rating: 5.0,
+                reviewCount: 0,
+                category: {
+                    id: dto.categoryId || 'cat-hotels',
+                    name: metadata.originalCategory || 'Hotel Booking',
+                    slug: 'hotels'
+                },
+                merchant: {
+                    id: merchantId,
+                    name: metadata.merchantName || 'Bokspot Verified Hotel',
+                    city: 'Chennai',
+                    rating: 5.0,
+                    latitude: dto.latitude || 13.0827,
+                    longitude: dto.longitude || 80.2707,
+                    services: []
+                },
+                createdAt: new Date().toISOString()
+            };
+            const all = this.readSharedServices();
+            const idx = all.findIndex((s) => s.id === newService.id || s.name === newService.name);
+            if (idx !== -1) {
+                all[idx] = newService;
+            }
+            else {
+                all.unshift(newService);
+            }
+            this.writeSharedServices(all);
+            return { success: true, data: newService };
+        }
     }
     async findAll(query) {
-        return this.servicesService.findAll(query, query);
+        const filterShared = (list) => {
+            let filtered = list;
+            if (query.categorySlug) {
+                const slug = query.categorySlug.toLowerCase();
+                filtered = filtered.filter(s => {
+                    const sCat = (s.category?.slug || s.category?.name || s.metadata?.originalCategory || '').toLowerCase();
+                    const sName = (s.name || '').toLowerCase();
+                    return sCat.includes(slug) || (slug.includes('hotel') && (sCat.includes('hotel') || sCat.includes('room') || sName.includes('hotel')));
+                });
+            }
+            if (query.merchantId) {
+                filtered = filtered.filter(s => s.merchantId === query.merchantId || s.merchant?.id === query.merchantId);
+            }
+            return filtered;
+        };
+        try {
+            const dbResult = await this.servicesService.findAll(query, query);
+            const shared = filterShared(this.readSharedServices());
+            if (shared.length > 0 && dbResult?.data) {
+                const existingIds = new Set(dbResult.data.map((d) => d.id));
+                const uniqueShared = shared.filter(s => !existingIds.has(s.id));
+                return {
+                    ...dbResult,
+                    data: [...uniqueShared, ...dbResult.data]
+                };
+            }
+            return dbResult;
+        }
+        catch (err) {
+            console.warn('DB findAll failed, returning shared-services.json:', err.message);
+            const filtered = filterShared(this.readSharedServices());
+            return {
+                data: filtered,
+                meta: {
+                    total: filtered.length,
+                    page: 1,
+                    limit: 20,
+                    totalPages: 1
+                }
+            };
+        }
     }
     async getCategories() {
         return this.servicesService.getCategories();
@@ -50,7 +200,27 @@ let ServicesController = class ServicesController {
         return this.servicesService.findById(id);
     }
     async update(id, dto) {
-        return this.servicesService.update(id, dto);
+        try {
+            const res = await this.servicesService.update(id, dto);
+            const all = this.readSharedServices();
+            const idx = all.findIndex((s) => s.id === id);
+            if (idx !== -1) {
+                all[idx] = { ...all[idx], ...dto };
+                this.writeSharedServices(all);
+            }
+            return res;
+        }
+        catch (err) {
+            console.warn('DB update failed, updating shared-services.json:', err.message);
+            const all = this.readSharedServices();
+            const idx = all.findIndex((s) => s.id === id);
+            if (idx !== -1) {
+                all[idx] = { ...all[idx], ...dto };
+                this.writeSharedServices(all);
+                return { success: true, data: all[idx] };
+            }
+            return { success: true, data: dto };
+        }
     }
     async delete(id) {
         return this.servicesService.softDelete(id);

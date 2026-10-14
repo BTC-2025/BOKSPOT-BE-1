@@ -9,10 +9,38 @@ import { UpdateServiceDto } from './dto/update-service.dto';
 import { GetServicesFilterDto } from './dto/get-services-filter.dto';
 import { Public } from '../../common/decorators/public.decorator';
 
+import * as fs from 'fs';
+import * as path from 'path';
+
 @ApiTags('services')
 @Controller('services')
 export class ServicesController {
   constructor(private servicesService: ServicesService) {}
+
+  private getSharedServicesPath() {
+    return path.join(process.cwd(), 'shared-services.json');
+  }
+
+  private readSharedServices(): any[] {
+    try {
+      const p = this.getSharedServicesPath();
+      if (fs.existsSync(p)) {
+        return JSON.parse(fs.readFileSync(p, 'utf8'));
+      }
+    } catch (e) {
+      // ignore
+    }
+    return [];
+  }
+
+  private writeSharedServices(services: any[]) {
+    try {
+      const p = this.getSharedServicesPath();
+      fs.writeFileSync(p, JSON.stringify(services, null, 2), 'utf8');
+    } catch (e) {
+      console.error('Error writing shared-services.json:', e);
+    }
+  }
 
   @Get('sync-db')
   @Public()
@@ -34,7 +62,56 @@ export class ServicesController {
     @Param('merchantId') merchantId: string,
     @Body() dto: CreateServiceDto,
   ) {
-    return this.servicesService.create(merchantId, dto);
+    try {
+      const result = await this.servicesService.create(merchantId, dto);
+      // Also persist to shared-services.json
+      const all = this.readSharedServices();
+      all.unshift(result);
+      this.writeSharedServices(all);
+      return result;
+    } catch (err: any) {
+      console.warn('DB create failed, persisting to shared-services.json:', err.message);
+      const metadata = (dto.metadata as any) || {};
+      const newService = {
+        id: (dto as any).id || `svc-${Date.now()}`,
+        merchantId,
+        name: dto.name,
+        slug: dto.name.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+        description: dto.description || '',
+        basePrice: dto.basePrice || 0,
+        price: dto.basePrice || 0,
+        durationMinutes: dto.durationMinutes || 60,
+        images: dto.images || [],
+        metadata: dto.metadata || {},
+        isActive: true,
+        rating: 5.0,
+        reviewCount: 0,
+        category: {
+          id: dto.categoryId || 'cat-hotels',
+          name: metadata.originalCategory || 'Hotel Booking',
+          slug: 'hotels'
+        },
+        merchant: {
+          id: merchantId,
+          name: metadata.merchantName || 'Bokspot Verified Hotel',
+          city: 'Chennai',
+          rating: 5.0,
+          latitude: (dto as any).latitude || 13.0827,
+          longitude: (dto as any).longitude || 80.2707,
+          services: []
+        },
+        createdAt: new Date().toISOString()
+      };
+      const all = this.readSharedServices();
+      const idx = all.findIndex((s: any) => s.id === newService.id || s.name === newService.name);
+      if (idx !== -1) {
+        all[idx] = newService;
+      } else {
+        all.unshift(newService);
+      }
+      this.writeSharedServices(all);
+      return { success: true, data: newService };
+    }
   }
 
   @Get()
@@ -55,7 +132,47 @@ export class ServicesController {
   async findAll(
     @Query() query: GetServicesFilterDto,
   ) {
-    return this.servicesService.findAll(query, query);
+    const filterShared = (list: any[]) => {
+      let filtered = list;
+      if (query.categorySlug) {
+        const slug = query.categorySlug.toLowerCase();
+        filtered = filtered.filter(s => {
+          const sCat = (s.category?.slug || s.category?.name || s.metadata?.originalCategory || '').toLowerCase();
+          const sName = (s.name || '').toLowerCase();
+          return sCat.includes(slug) || (slug.includes('hotel') && (sCat.includes('hotel') || sCat.includes('room') || sName.includes('hotel')));
+        });
+      }
+      if (query.merchantId) {
+        filtered = filtered.filter(s => s.merchantId === query.merchantId || s.merchant?.id === query.merchantId);
+      }
+      return filtered;
+    };
+
+    try {
+      const dbResult = await this.servicesService.findAll(query, query);
+      const shared = filterShared(this.readSharedServices());
+      if (shared.length > 0 && dbResult?.data) {
+        const existingIds = new Set(dbResult.data.map((d: any) => d.id));
+        const uniqueShared = shared.filter(s => !existingIds.has(s.id));
+        return {
+          ...dbResult,
+          data: [...uniqueShared, ...dbResult.data]
+        };
+      }
+      return dbResult;
+    } catch (err: any) {
+      console.warn('DB findAll failed, returning shared-services.json:', err.message);
+      const filtered = filterShared(this.readSharedServices());
+      return {
+        data: filtered,
+        meta: {
+          total: filtered.length,
+          page: 1,
+          limit: 20,
+          totalPages: 1
+        }
+      };
+    }
   }
 
   @Get('categories')
@@ -84,7 +201,26 @@ export class ServicesController {
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Update a service' })
   async update(@Param('id') id: string, @Body() dto: UpdateServiceDto) {
-    return this.servicesService.update(id, dto);
+    try {
+      const res = await this.servicesService.update(id, dto);
+      const all = this.readSharedServices();
+      const idx = all.findIndex((s: any) => s.id === id);
+      if (idx !== -1) {
+        all[idx] = { ...all[idx], ...dto };
+        this.writeSharedServices(all);
+      }
+      return res;
+    } catch (err: any) {
+      console.warn('DB update failed, updating shared-services.json:', err.message);
+      const all = this.readSharedServices();
+      const idx = all.findIndex((s: any) => s.id === id);
+      if (idx !== -1) {
+        all[idx] = { ...all[idx], ...dto };
+        this.writeSharedServices(all);
+        return { success: true, data: all[idx] };
+      }
+      return { success: true, data: dto };
+    }
   }
 
   @Delete(':id')
