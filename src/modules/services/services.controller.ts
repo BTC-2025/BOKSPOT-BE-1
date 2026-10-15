@@ -193,7 +193,16 @@ export class ServicesController {
   @Public()
   @ApiOperation({ summary: 'Get service by ID' })
   async findById(@Param('id') id: string) {
-    return this.servicesService.findById(id);
+    try {
+      return await this.servicesService.findById(id);
+    } catch (err: any) {
+      const all = this.readSharedServices();
+      const found = all.find((s: any) => s.id === id);
+      if (found) {
+        return found;
+      }
+      throw err;
+    }
   }
 
   @Patch(':id')

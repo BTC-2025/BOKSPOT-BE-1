@@ -197,7 +197,17 @@ let ServicesController = class ServicesController {
         return this.servicesService.getFeatured(limit);
     }
     async findById(id) {
-        return this.servicesService.findById(id);
+        try {
+            return await this.servicesService.findById(id);
+        }
+        catch (err) {
+            const all = this.readSharedServices();
+            const found = all.find((s) => s.id === id);
+            if (found) {
+                return found;
+            }
+            throw err;
+        }
     }
     async update(id, dto) {
         try {
