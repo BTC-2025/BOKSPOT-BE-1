@@ -11,6 +11,7 @@ import { Public } from '../../common/decorators/public.decorator';
 
 import * as fs from 'fs';
 import * as path from 'path';
+import { UnifiedPricingEngine, PriceCalculationInput } from './pricing-engine';
 
 @ApiTags('services')
 @Controller('services')
@@ -52,6 +53,16 @@ export class ServicesController {
     } catch (error: any) {
       return { success: false, error: error.message };
     }
+  }
+
+  @Post('calculate-pricing')
+  @Public()
+  @ApiOperation({ summary: 'Universal Price & Multipliers Calculator across all 6 archetypes' })
+  calculatePricing(@Body() input: PriceCalculationInput) {
+    return {
+      success: true,
+      data: UnifiedPricingEngine.calculate(input)
+    };
   }
 
   @Post(':merchantId')

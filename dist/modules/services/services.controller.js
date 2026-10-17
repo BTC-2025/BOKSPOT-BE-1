@@ -55,6 +55,7 @@ const get_services_filter_dto_1 = require("./dto/get-services-filter.dto");
 const public_decorator_1 = require("../../common/decorators/public.decorator");
 const fs = __importStar(require("fs"));
 const path = __importStar(require("path"));
+const pricing_engine_1 = require("./pricing-engine");
 let ServicesController = class ServicesController {
     constructor(servicesService) {
         this.servicesService = servicesService;
@@ -92,6 +93,12 @@ let ServicesController = class ServicesController {
         catch (error) {
             return { success: false, error: error.message };
         }
+    }
+    calculatePricing(input) {
+        return {
+            success: true,
+            data: pricing_engine_1.UnifiedPricingEngine.calculate(input)
+        };
     }
     async create(merchantId, dto) {
         try {
@@ -244,6 +251,15 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], ServicesController.prototype, "syncDb", null);
+__decorate([
+    (0, common_1.Post)('calculate-pricing'),
+    (0, public_decorator_1.Public)(),
+    (0, swagger_1.ApiOperation)({ summary: 'Universal Price & Multipliers Calculator across all 6 archetypes' }),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], ServicesController.prototype, "calculatePricing", null);
 __decorate([
     (0, common_1.Post)(':merchantId'),
     (0, public_decorator_1.Public)(),
