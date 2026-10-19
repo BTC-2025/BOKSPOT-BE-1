@@ -39,7 +39,33 @@
                 "price": 100
               }
             ]
-          }
+          },
+          "schedule": [
+            {
+              "dayOfWeek": "Tuesday",
+              "startTime": "09:00",
+              "endTime": "10:00",
+              "price": 1199
+            },
+            {
+              "dayOfWeek": "Tuesday",
+              "startTime": "11:00",
+              "endTime": "23:15",
+              "price": 119
+            },
+            {
+              "dayOfWeek": "Tuesday",
+              "startTime": "11:00",
+              "endTime": "23:15",
+              "price": 211
+            },
+            {
+              "dayOfWeek": "Tuesday",
+              "startTime": "11:00",
+              "endTime": "23:15",
+              "price": 211
+            }
+          ]
         }
       ]
     },
