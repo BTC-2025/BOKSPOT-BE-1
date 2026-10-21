@@ -100,6 +100,44 @@ let ServicesController = class ServicesController {
             data: pricing_engine_1.UnifiedPricingEngine.calculate(input)
         };
     }
+    resolveCategorySlug(categoryName) {
+        const name = (categoryName || '').toLowerCase();
+        const map = {
+            'resort booking': 'resorts',
+            'hotel booking': 'hotels',
+            'homestay / villa': 'villas',
+            'hostel booking': 'hostels',
+            'camping booking': 'camping',
+            'flight booking': 'flights',
+            'train booking': 'trains',
+            'bus booking': 'buses',
+            'cab / taxi booking': 'cabs',
+            'bike rental': 'bike-rental',
+            'self-drive car rental': 'car-rental',
+            'cinema / movie tickets': 'movies',
+            'theatre shows': 'theatre',
+            'concert tickets': 'concerts',
+            'events & festivals': 'events',
+            'exhibition entry': 'exhibitions',
+            'workshops / classes': 'workshops',
+            'gaming arena booking': 'gaming',
+            'football turf': 'football-turf',
+            'cricket ground': 'cricket-ground',
+            'badminton court': 'badminton',
+            'tennis court': 'tennis',
+            'basketball court': 'basketball',
+            'swimming pool slots': 'swimming',
+            'indoor play arena': 'play-arena',
+            'restaurant table reservation': 'dining'
+        };
+        if (map[name])
+            return map[name];
+        for (const [k, v] of Object.entries(map)) {
+            if (name.includes(k) || k.includes(name))
+                return v;
+        }
+        return name.replace(/[^a-z0-9]+/g, '-');
+    }
     async create(merchantId, dto) {
         try {
             const result = await this.servicesService.create(merchantId, dto);
@@ -112,6 +150,8 @@ let ServicesController = class ServicesController {
         catch (err) {
             console.warn('DB create failed, persisting to shared-services.json:', err.message);
             const metadata = dto.metadata || {};
+            const catName = metadata.originalCategory || 'Hotel Booking';
+            const catSlug = this.resolveCategorySlug(catName);
             const newService = {
                 id: dto.id || `svc-${Date.now()}`,
                 merchantId,
@@ -128,8 +168,8 @@ let ServicesController = class ServicesController {
                 reviewCount: 0,
                 category: {
                     id: dto.categoryId || 'cat-hotels',
-                    name: metadata.originalCategory || 'Hotel Booking',
-                    slug: 'hotels'
+                    name: catName,
+                    slug: catSlug
                 },
                 merchant: {
                     id: merchantId,
@@ -160,9 +200,19 @@ let ServicesController = class ServicesController {
             if (query.categorySlug) {
                 const slug = query.categorySlug.toLowerCase();
                 filtered = filtered.filter(s => {
-                    const sCat = (s.category?.slug || s.category?.name || s.metadata?.originalCategory || '').toLowerCase();
+                    const sCatSlug = (s.category?.slug || '').toLowerCase();
+                    const sCatName = (s.category?.name || s.metadata?.originalCategory || '').toLowerCase();
                     const sName = (s.name || '').toLowerCase();
-                    return sCat.includes(slug) || (slug.includes('hotel') && (sCat.includes('hotel') || sCat.includes('room') || sName.includes('hotel')));
+                    const resolvedSlug = this.resolveCategorySlug(sCatName);
+                    if (sCatSlug === slug || resolvedSlug === slug)
+                        return true;
+                    if (sCatName.includes(slug) || sCatSlug.includes(slug))
+                        return true;
+                    if (slug.includes('hotel') && (sCatName.includes('hotel') || sCatName.includes('room') || sName.includes('hotel')))
+                        return true;
+                    if (slug.includes('resort') && (sCatName.includes('resort') || sName.includes('resort') || sCatSlug.includes('resort')))
+                        return true;
+                    return false;
                 });
             }
             if (query.merchantId) {
