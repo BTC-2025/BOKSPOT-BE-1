@@ -1,5 +1,39 @@
 [
   {
+    "id": "svc-1792823471034",
+    "merchantId": "7d24a2aa-b792-554b-1bf8-b3f392999a3f",
+    "name": "sunstone villa",
+    "slug": "sunstone-villa",
+    "description": "this is sunstone villa",
+    "basePrice": 0,
+    "price": 0,
+    "durationMinutes": 30,
+    "images": [],
+    "metadata": {
+      "merchantName": "Sunstone Resort",
+      "originalCategory": "Resort Booking",
+      "listings": []
+    },
+    "isActive": true,
+    "rating": 5,
+    "reviewCount": 0,
+    "category": {
+      "id": "712cb562-7f6a-4fea-9145-00c6da59ebc3",
+      "name": "Resort Booking",
+      "slug": "resorts"
+    },
+    "merchant": {
+      "id": "7d24a2aa-b792-554b-1bf8-b3f392999a3f",
+      "name": "Sunstone Resort",
+      "city": "Chennai",
+      "rating": 5,
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "services": []
+    },
+    "createdAt": "2026-10-24T06:31:11.034Z"
+  },
+  {
     "id": "svc-1792748104059",
     "merchantId": "7d24a2aa-b792-554b-1bf8-b3f392999a3f",
     "name": "AstroTurf",
