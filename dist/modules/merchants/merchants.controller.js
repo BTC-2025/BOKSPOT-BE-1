@@ -1,10 +1,43 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
@@ -21,27 +54,110 @@ const update_merchant_dto_1 = require("./dto/update-merchant.dto");
 const pagination_dto_1 = require("../../common/dto/pagination.dto");
 const current_user_decorator_1 = require("../../common/decorators/current-user.decorator");
 const public_decorator_1 = require("../../common/decorators/public.decorator");
+const fs = __importStar(require("fs"));
+const path = __importStar(require("path"));
 let MerchantsController = class MerchantsController {
     constructor(merchantsService) {
         this.merchantsService = merchantsService;
+    }
+    getSharedMerchantsPath() {
+        return path.join(process.cwd(), 'shared-merchants.json');
+    }
+    readSharedMerchants() {
+        try {
+            const p = this.getSharedMerchantsPath();
+            if (fs.existsSync(p)) {
+                return JSON.parse(fs.readFileSync(p, 'utf8'));
+            }
+        }
+        catch (e) {
+            // ignore
+        }
+        return [];
+    }
+    writeSharedMerchants(merchants) {
+        try {
+            const p = this.getSharedMerchantsPath();
+            fs.writeFileSync(p, JSON.stringify(merchants, null, 2), 'utf8');
+        }
+        catch (e) {
+            console.error('Error writing shared-merchants.json:', e);
+        }
     }
     async create(user, dto) {
         return this.merchantsService.create(user.sub, dto);
     }
     async findAll(pagination, city) {
-        return this.merchantsService.findAll(pagination, city);
+        try {
+            return await this.merchantsService.findAll(pagination, city);
+        }
+        catch (e) {
+            const merchants = this.readSharedMerchants();
+            return {
+                data: merchants,
+                meta: {
+                    total: merchants.length,
+                    page: pagination.page || 1,
+                    limit: pagination.limit || 20,
+                    totalPages: 1,
+                },
+            };
+        }
     }
     async getDashboard(merchantId) {
         return this.merchantsService.getMerchantDashboard(merchantId);
     }
     async findBySlug(slug) {
-        return this.merchantsService.findBySlug(slug);
+        try {
+            return await this.merchantsService.findBySlug(slug);
+        }
+        catch (e) {
+            const merchants = this.readSharedMerchants();
+            const m = merchants.find((item) => item.slug === slug);
+            if (m)
+                return m;
+            throw e;
+        }
     }
     async findById(id) {
-        return this.merchantsService.findById(id);
+        try {
+            return await this.merchantsService.findById(id);
+        }
+        catch (e) {
+            const merchants = this.readSharedMerchants();
+            const m = merchants.find((item) => item.id === id);
+            if (m)
+                return m;
+            throw e;
+        }
     }
     async update(id, dto) {
-        return this.merchantsService.update(id, 'bypass', dto);
+        try {
+            const res = await this.merchantsService.update(id, 'bypass', dto);
+            return res;
+        }
+        catch (e) {
+            // Fallback to shared-merchants.json
+            const merchants = this.readSharedMerchants();
+            const index = merchants.findIndex((item) => item.id === id);
+            let updatedMerchant;
+            if (index >= 0) {
+                updatedMerchant = { ...merchants[index], ...dto };
+                if (dto.metadata) {
+                    updatedMerchant.metadata = {
+                        ...(merchants[index].metadata || {}),
+                        ...(typeof dto.metadata === 'string' ? JSON.parse(dto.metadata) : dto.metadata),
+                    };
+                }
+                merchants[index] = updatedMerchant;
+            }
+            else {
+                updatedMerchant = { id, ...dto };
+                merchants.push(updatedMerchant);
+            }
+            this.writeSharedMerchants(merchants);
+            return updatedMerchant;
+        }
     }
 };
 exports.MerchantsController = MerchantsController;
