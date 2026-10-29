@@ -1,9 +1,9 @@
-export type BookingArchetype = 
-  | 'OvernightStay' 
-  | 'TimeSlot' 
-  | 'FacilityHourly' 
-  | 'AssetRental' 
-  | 'PassEntry' 
+export type BookingArchetype =
+  | 'OvernightStay'
+  | 'TimeSlot'
+  | 'FacilityHourly'
+  | 'AssetRental'
+  | 'PassEntry'
   | 'HomeCall';
 
 export interface PriceCalculationInput {
@@ -67,7 +67,7 @@ export class UnifiedPricingEngine {
         multiplierText = `₹${basePrice} × ${safeNights} Night${safeNights > 1 ? 's' : ''} × ${safeRooms} Room${safeRooms > 1 ? 's' : ''}`;
         break;
       }
-         
+
       case 'FacilityHourly': {
         const safeHours = Math.max(1, durationHours);
         const safeCourts = Math.max(1, quantity);
