@@ -44,6 +44,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var ServicesController_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ServicesController = void 0;
 const common_1 = require("@nestjs/common");
@@ -56,7 +57,7 @@ const public_decorator_1 = require("../../common/decorators/public.decorator");
 const fs = __importStar(require("fs"));
 const path = __importStar(require("path"));
 const pricing_engine_1 = require("./pricing-engine");
-let ServicesController = class ServicesController {
+let ServicesController = ServicesController_1 = class ServicesController {
     constructor(servicesService) {
         this.servicesService = servicesService;
     }
@@ -67,18 +68,27 @@ let ServicesController = class ServicesController {
         try {
             const p = this.getSharedServicesPath();
             if (fs.existsSync(p)) {
-                return JSON.parse(fs.readFileSync(p, 'utf8'));
+                const stats = fs.statSync(p);
+                if (ServicesController_1.cachedSharedServices && ServicesController_1.cachedMtime === stats.mtimeMs) {
+                    return ServicesController_1.cachedSharedServices;
+                }
+                const data = JSON.parse(fs.readFileSync(p, 'utf8'));
+                ServicesController_1.cachedSharedServices = data;
+                ServicesController_1.cachedMtime = stats.mtimeMs;
+                return data;
             }
         }
         catch (e) {
             // ignore
         }
-        return [];
+        return ServicesController_1.cachedSharedServices || [];
     }
     writeSharedServices(services) {
         try {
             const p = this.getSharedServicesPath();
             fs.writeFileSync(p, JSON.stringify(services, null, 2), 'utf8');
+            ServicesController_1.cachedSharedServices = services;
+            ServicesController_1.cachedMtime = fs.statSync(p).mtimeMs;
         }
         catch (e) {
             console.error('Error writing shared-services.json:', e);
@@ -195,6 +205,12 @@ let ServicesController = class ServicesController {
         }
     }
     async findAll(query) {
+        const cacheKey = JSON.stringify(query || {});
+        const now = Date.now();
+        const cached = ServicesController_1.servicesResponseCache[cacheKey];
+        if (cached && (now - cached.timestamp < 60000)) {
+            return cached.data;
+        }
         const filterShared = (list) => {
             let filtered = list;
             if (query.categorySlug) {
@@ -220,31 +236,56 @@ let ServicesController = class ServicesController {
             }
             return filtered;
         };
+        const shared = filterShared(this.readSharedServices());
+        // Instant SWR pattern: If shared services are ready, serve them in < 5ms!
+        if (shared.length > 0) {
+            const immediateResult = {
+                data: shared,
+                meta: {
+                    total: shared.length,
+                    page: 1,
+                    limit: 100,
+                    totalPages: 1
+                }
+            };
+            // Trigger background sync with DB without blocking client response
+            this.servicesService.findAll(query, query)
+                .then(dbResult => {
+                if (dbResult?.data) {
+                    const existingIds = new Set(dbResult.data.map((d) => d.id));
+                    const uniqueShared = shared.filter(s => !existingIds.has(s.id));
+                    const freshResult = {
+                        ...dbResult,
+                        data: [...uniqueShared, ...dbResult.data]
+                    };
+                    ServicesController_1.servicesResponseCache[cacheKey] = { data: freshResult, timestamp: Date.now() };
+                }
+            })
+                .catch(() => { });
+            ServicesController_1.servicesResponseCache[cacheKey] = { data: immediateResult, timestamp: now };
+            return immediateResult;
+        }
         try {
-            const dbResult = await this.servicesService.findAll(query, query);
-            const shared = filterShared(this.readSharedServices());
-            if (shared.length > 0 && dbResult?.data) {
-                const existingIds = new Set(dbResult.data.map((d) => d.id));
-                const uniqueShared = shared.filter(s => !existingIds.has(s.id));
-                return {
-                    ...dbResult,
-                    data: [...uniqueShared, ...dbResult.data]
-                };
-            }
+            // Fast race: DB has 2000ms max to respond
+            const dbPromise = this.servicesService.findAll(query, query);
+            const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error('DB Timeout')), 2000));
+            const dbResult = await Promise.race([dbPromise, timeoutPromise]);
+            ServicesController_1.servicesResponseCache[cacheKey] = { data: dbResult, timestamp: now };
             return dbResult;
         }
         catch (err) {
-            console.warn('DB findAll failed, returning shared-services.json:', err.message);
-            const filtered = filterShared(this.readSharedServices());
-            return {
-                data: filtered,
+            console.warn('DB findAll fallback to shared:', err.message);
+            const fallbackResult = {
+                data: shared,
                 meta: {
-                    total: filtered.length,
+                    total: shared.length,
                     page: 1,
                     limit: 20,
                     totalPages: 1
                 }
             };
+            ServicesController_1.servicesResponseCache[cacheKey] = { data: fallbackResult, timestamp: now };
+            return fallbackResult;
         }
     }
     async getCategories() {
@@ -294,6 +335,9 @@ let ServicesController = class ServicesController {
     }
 };
 exports.ServicesController = ServicesController;
+ServicesController.cachedSharedServices = null;
+ServicesController.cachedMtime = 0;
+ServicesController.servicesResponseCache = {};
 __decorate([
     (0, common_1.Get)('sync-db'),
     (0, public_decorator_1.Public)(),
@@ -389,7 +433,7 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], ServicesController.prototype, "delete", null);
-exports.ServicesController = ServicesController = __decorate([
+exports.ServicesController = ServicesController = ServicesController_1 = __decorate([
     (0, swagger_1.ApiTags)('services'),
     (0, common_1.Controller)('services'),
     __metadata("design:paramtypes", [services_service_1.ServicesService])

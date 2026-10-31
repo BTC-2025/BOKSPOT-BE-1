@@ -18,6 +18,9 @@ import { UnifiedPricingEngine, PriceCalculationInput } from './pricing-engine';
 export class ServicesController {
   constructor(private servicesService: ServicesService) {}
 
+  private static cachedSharedServices: any[] | null = null;
+  private static cachedMtime: number = 0;
+
   private getSharedServicesPath() {
     return path.join(process.cwd(), 'shared-services.json');
   }
@@ -26,18 +29,27 @@ export class ServicesController {
     try {
       const p = this.getSharedServicesPath();
       if (fs.existsSync(p)) {
-        return JSON.parse(fs.readFileSync(p, 'utf8'));
+        const stats = fs.statSync(p);
+        if (ServicesController.cachedSharedServices && ServicesController.cachedMtime === stats.mtimeMs) {
+          return ServicesController.cachedSharedServices;
+        }
+        const data = JSON.parse(fs.readFileSync(p, 'utf8'));
+        ServicesController.cachedSharedServices = data;
+        ServicesController.cachedMtime = stats.mtimeMs;
+        return data;
       }
     } catch (e) {
       // ignore
     }
-    return [];
+    return ServicesController.cachedSharedServices || [];
   }
 
   private writeSharedServices(services: any[]) {
     try {
       const p = this.getSharedServicesPath();
       fs.writeFileSync(p, JSON.stringify(services, null, 2), 'utf8');
+      ServicesController.cachedSharedServices = services;
+      ServicesController.cachedMtime = fs.statSync(p).mtimeMs;
     } catch (e) {
       console.error('Error writing shared-services.json:', e);
     }
@@ -164,6 +176,8 @@ export class ServicesController {
     }
   }
 
+  private static servicesResponseCache: Record<string, { data: any; timestamp: number }> = {};
+
   @Get()
   @Public()
   @ApiOperation({ summary: 'List/search services' })
@@ -182,6 +196,13 @@ export class ServicesController {
   async findAll(
     @Query() query: GetServicesFilterDto,
   ) {
+    const cacheKey = JSON.stringify(query || {});
+    const now = Date.now();
+    const cached = ServicesController.servicesResponseCache[cacheKey];
+    if (cached && (now - cached.timestamp < 60000)) {
+      return cached.data;
+    }
+
     const filterShared = (list: any[]) => {
       let filtered = list;
       if (query.categorySlug) {
@@ -205,30 +226,60 @@ export class ServicesController {
       return filtered;
     };
 
+    const shared = filterShared(this.readSharedServices());
+
+    // Instant SWR pattern: If shared services are ready, serve them in < 5ms!
+    if (shared.length > 0) {
+      const immediateResult = {
+        data: shared,
+        meta: {
+          total: shared.length,
+          page: 1,
+          limit: 100,
+          totalPages: 1
+        }
+      };
+
+      // Trigger background sync with DB without blocking client response
+      this.servicesService.findAll(query, query)
+        .then(dbResult => {
+          if (dbResult?.data) {
+            const existingIds = new Set(dbResult.data.map((d: any) => d.id));
+            const uniqueShared = shared.filter(s => !existingIds.has(s.id));
+            const freshResult = {
+              ...dbResult,
+              data: [...uniqueShared, ...dbResult.data]
+            };
+            ServicesController.servicesResponseCache[cacheKey] = { data: freshResult, timestamp: Date.now() };
+          }
+        })
+        .catch(() => {});
+
+      ServicesController.servicesResponseCache[cacheKey] = { data: immediateResult, timestamp: now };
+      return immediateResult;
+    }
+
     try {
-      const dbResult = await this.servicesService.findAll(query, query);
-      const shared = filterShared(this.readSharedServices());
-      if (shared.length > 0 && dbResult?.data) {
-        const existingIds = new Set(dbResult.data.map((d: any) => d.id));
-        const uniqueShared = shared.filter(s => !existingIds.has(s.id));
-        return {
-          ...dbResult,
-          data: [...uniqueShared, ...dbResult.data]
-        };
-      }
+      // Fast race: DB has 2000ms max to respond
+      const dbPromise = this.servicesService.findAll(query, query);
+      const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error('DB Timeout')), 2000));
+      const dbResult: any = await Promise.race([dbPromise, timeoutPromise]);
+
+      ServicesController.servicesResponseCache[cacheKey] = { data: dbResult, timestamp: now };
       return dbResult;
     } catch (err: any) {
-      console.warn('DB findAll failed, returning shared-services.json:', err.message);
-      const filtered = filterShared(this.readSharedServices());
-      return {
-        data: filtered,
+      console.warn('DB findAll fallback to shared:', err.message);
+      const fallbackResult = {
+        data: shared,
         meta: {
-          total: filtered.length,
+          total: shared.length,
           page: 1,
           limit: 20,
           totalPages: 1
         }
       };
+      ServicesController.servicesResponseCache[cacheKey] = { data: fallbackResult, timestamp: now };
+      return fallbackResult;
     }
   }
 

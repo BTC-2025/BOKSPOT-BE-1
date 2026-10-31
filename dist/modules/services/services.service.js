@@ -97,42 +97,55 @@ let ServicesService = class ServicesService {
                 const radiusKm = filters.radius || 50;
                 const lat = filters.latitude;
                 const lng = filters.longitude;
-                // Raw SQL query to find nearby service IDs AND merchant IDs using Haversine formula
-                // First, find nearby services
-                const nearbyServices = await this.prisma.$queryRaw `
-          SELECT id FROM (
-            SELECT id, (
-              6371 * acos(
-                cos(radians(${lat})) *
-                cos(radians(latitude)) *
-                cos(radians(longitude) - radians(${lng})) +
-                sin(radians(${lat})) *
-                sin(radians(latitude))
-              )
-            ) AS distance_km
-            FROM services
-            WHERE is_active = true AND deleted_at IS NULL AND latitude IS NOT NULL AND longitude IS NOT NULL
-          ) sub
-          WHERE distance_km <= ${radiusKm}
-        `;
+                // Bounding box approximation (~1 deg lat = 111 km) to avoid slow full-table scans
+                const latDelta = radiusKm / 111;
+                const lngDelta = radiusKm / (111 * Math.cos((lat * Math.PI) / 180));
+                const minLat = lat - latDelta;
+                const maxLat = lat + latDelta;
+                const minLng = lng - lngDelta;
+                const maxLng = lng + lngDelta;
+                // Raw SQL query to find nearby service IDs AND merchant IDs with fast bounding-box pre-filtering
+                const [nearbyServices, nearbyMerchants] = await Promise.all([
+                    this.prisma.$queryRaw `
+            SELECT id FROM (
+              SELECT id, (
+                6371 * acos(
+                  cos(radians(${lat})) *
+                  cos(radians(latitude)) *
+                  cos(radians(longitude) - radians(${lng})) +
+                  sin(radians(${lat})) *
+                  sin(radians(latitude))
+                )
+              ) AS distance_km
+              FROM services
+              WHERE is_active = true AND deleted_at IS NULL
+                AND latitude BETWEEN ${minLat} AND ${maxLat}
+                AND longitude BETWEEN ${minLng} AND ${maxLng}
+            ) sub
+            WHERE distance_km <= ${radiusKm}
+            LIMIT 50
+          `,
+                    this.prisma.$queryRaw `
+            SELECT id FROM (
+              SELECT id, (
+                6371 * acos(
+                  cos(radians(${lat})) *
+                  cos(radians(latitude)) *
+                  cos(radians(longitude) - radians(${lng})) +
+                  sin(radians(${lat})) *
+                  sin(radians(latitude))
+                )
+              ) AS distance_km
+              FROM merchants
+              WHERE is_active = true AND deleted_at IS NULL
+                AND latitude BETWEEN ${minLat} AND ${maxLat}
+                AND longitude BETWEEN ${minLng} AND ${maxLng}
+            ) sub
+            WHERE distance_km <= ${radiusKm}
+            LIMIT 50
+          `
+                ]);
                 const serviceIds = nearbyServices.map((s) => s.id);
-                // Second, find nearby merchants (for fallback)
-                const nearbyMerchants = await this.prisma.$queryRaw `
-          SELECT id FROM (
-            SELECT id, (
-              6371 * acos(
-                cos(radians(${lat})) *
-                cos(radians(latitude)) *
-                cos(radians(longitude) - radians(${lng})) +
-                sin(radians(${lat})) *
-                sin(radians(latitude))
-              )
-            ) AS distance_km
-            FROM merchants
-            WHERE is_active = true AND deleted_at IS NULL
-          ) sub
-          WHERE distance_km <= ${radiusKm}
-        `;
                 const merchantIds = nearbyMerchants.map((m) => m.id);
                 // Combine conditions: either service is nearby OR merchant is nearby
                 const existingOR = where.OR || [];
