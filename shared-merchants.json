@@ -111,7 +111,11 @@
       "gallery": [
         "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=1200&q=80",
         "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80",
-        "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80"
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80",
+        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80",
+        "https://images.unsplash.com/photo-1551882547-ff40eb0d8e73?w=800&q=80",
+        "https://images.unsplash.com/photo-1522771731478-44bc10b49cb3?w=800&q=80",
+        "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=80"
       ],
       "isPetFriendly": false,
       "checkInTime": "12:00 PM",
@@ -126,7 +130,12 @@
     "images": [
       "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=1200&q=80",
       "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80",
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80"
-    ]
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80",
+      "https://images.unsplash.com/photo-1551882547-ff40eb0d8e73?w=800&q=80",
+      "https://images.unsplash.com/photo-1522771731478-44bc10b49cb3?w=800&q=80",
+      "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=80"
+    ],
+    "name": "Backpackers Hostel"
   }
 ]
