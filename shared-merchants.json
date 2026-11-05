@@ -91,8 +91,8 @@
   {
     "id": "8fb83f4b-62aa-3a5b-3e42-074005378435",
     "metadata": {
-      "isLuggageStorageEnabled": false,
-      "luggageHourlyRate": 100,
+      "isLuggageStorageEnabled": true,
+      "luggageHourlyRate": 150,
       "luggageDayPassRate": 500,
       "isMysteryModeOptIn": true,
       "isPetFriendly": true,
@@ -125,7 +125,36 @@
       "pgGenderType": "gents",
       "pgFoodIncluded": true,
       "pgGateCurfew": "24/7 Biometric Entry (No Curfew)",
-      "pgNoticePeriod": "15 Days"
+      "pgNoticePeriod": "15 Days",
+      "policies": [
+        "Valid Government Photo ID (Aadhaar / Passport) and College/Office ID required at check-in.",
+        "Notice Period: 15 / 30 days mandatory notice before vacating bed.",
+        "Monthly rent to be paid on or before the 5th of every calendar month.",
+        "Strictly no smoking, alcohol, or substance consumption inside rooms or corridors.",
+        "Day visitors allowed only in the common lounge area up to 8:00 PM."
+      ],
+      "highlights": [
+        {
+          "title": "3 Times Homely Hygienic Food",
+          "description": "Nutritious breakfast, lunch, and dinner cooked fresh daily with both veg and non-veg options.",
+          "icon": "🍳"
+        },
+        {
+          "title": "High-Speed Wi-Fi & Work Lounge",
+          "description": "Dedicated study space and high-speed fiber internet ideal for remote work and students.",
+          "icon": "📶"
+        },
+        {
+          "title": "24/7 Biometric & CCTV Security",
+          "description": "Safe environment with biometric door entry and CCTV surveillance in common areas.",
+          "icon": "🛡️"
+        },
+        {
+          "title": "Daily Housekeeping & Laundry",
+          "description": "Fully automatic washing machines, drying area, and regular deep room cleaning.",
+          "icon": "✨"
+        }
+      ]
     },
     "images": [
       "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=1200&q=80",
