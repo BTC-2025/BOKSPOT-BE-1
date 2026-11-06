@@ -592,12 +592,18 @@
     },
     "merchant": {
       "id": "51c6a3b8-2abc-9421-7644-2a2dea05dbc0",
-      "name": "Bokspot Verified Hotel",
+      "name": "Backpackers Hostel",
       "city": "Chennai",
       "rating": 5,
       "latitude": 13.0827,
       "longitude": 80.2707,
-      "services": []
+      "services": [],
+      "metadata": {
+        "isPgProperty": true,
+        "pgGenderType": "gents",
+        "pgFoodIncluded": true,
+        "pgGateCurfew": "24/7 Biometric Entry (No Curfew)"
+      }
     },
     "createdAt": "2026-10-22T06:25:28.000Z",
     "categoryId": "712cb562-7f6a-4fea-9145-00c6da59ebc3",
@@ -751,6 +757,9 @@
           "discountPercentage": 25,
           "offerBadge": "Budget Saver Deal",
           "bannerTagline": "Comfortable & Peaceful Budget Stay",
+          "priceUnit": "monthly rent (all inclusive)",
+          "isTokenAdvanceEnabled": true,
+          "foodFacilityProvided": true,
           "duration": 30,
           "metadata": {
             "roomType": "Non-AC Deluxe Queen Room",
@@ -803,7 +812,10 @@
             "offerBadge": "Budget Saver Deal",
             "bannerTagline": "Comfortable & Peaceful Budget Stay",
             "gstEnabled": false,
-            "gstPercentage": 0
+            "gstPercentage": 0,
+            "priceUnit": "monthly rent (all inclusive)",
+            "isTokenAdvanceEnabled": true,
+            "foodFacilityProvided": true
           },
           "gstEnabled": false,
           "gstPercentage": 0,
