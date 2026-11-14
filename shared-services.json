@@ -1,5 +1,176 @@
 [
   {
+    "id": "svc-1794631319673",
+    "merchantId": "de764dbc-2b2b-6079-d829-4633f41fd826",
+    "name": "Badminton Court Master Units",
+    "slug": "badminton-court-master-units",
+    "description": "Professional BWF approved badminton courts with synthetic and teak wood surfaces.",
+    "basePrice": 350,
+    "price": 350,
+    "durationMinutes": 60,
+    "images": [
+      "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=1200&q=80",
+      "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=800&q=80"
+    ],
+    "metadata": {
+      "facilityName": "Smash Academy",
+      "listings": [
+        {
+          "id": "court-1-synthetic",
+          "name": "Court 1 - Yonex Mat (Pro Grade)",
+          "metadata": {
+            "surface": "Yonex Synthetic Mat",
+            "addons": [
+              {
+                "price": 60,
+                "icon": "??",
+                "name": "Yonex Carbon Racket Rental",
+                "id": "racket-carbon",
+                "desc": "High tension pre-strung racket"
+              },
+              {
+                "price": 50,
+                "icon": "??",
+                "name": "Non-Marking Shoes Rental (Pair)",
+                "id": "shoes-nonmarking",
+                "desc": "Sanitized gum-sole shoes"
+              },
+              {
+                "price": 180,
+                "icon": "??",
+                "name": "Yonex Mavis 350 Shuttles (Tube of 3)",
+                "id": "shuttle-nylon",
+                "desc": "Durable yellow nylon shuttles"
+              }
+            ],
+            "badge": "?? Tournament Standard"
+          },
+          "description": "BWF standard 4.5mm synthetic mat with tournament level shock absorption.",
+          "images": [
+            "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=800&q=80"
+          ],
+          "price": 350
+        },
+        {
+          "id": "court-2-wooden",
+          "name": "Court 2 - Teak Wood Flooring",
+          "metadata": {
+            "surface": "Teak Wood Floor",
+            "addons": [
+              {
+                "price": 60,
+                "icon": "??",
+                "name": "Yonex Carbon Racket Rental",
+                "id": "racket-carbon",
+                "desc": "High tension pre-strung racket"
+              },
+              {
+                "price": 50,
+                "icon": "??",
+                "name": "Non-Marking Shoes Rental (Pair)",
+                "id": "shoes-nonmarking",
+                "desc": "Sanitized gum-sole shoes"
+              }
+            ],
+            "badge": "? Fast Rebound"
+          },
+          "description": "High-rebound seasoned teak wood court for fast competitive play.",
+          "images": [
+            "https://images.unsplash.com/photo-1613918431703-aa6325992a7e?w=800&q=80"
+          ],
+          "price": 400,
+          "schedule": [
+            {
+              "dayOfWeek": "Monday",
+              "startTime": "09:00",
+              "endTime": "10:00",
+              "price": 400
+            },
+            {
+              "specificDate": "2026-11-14",
+              "dayOfWeek": "Saturday",
+              "startTime": "09:00",
+              "endTime": "10:00",
+              "price": 500
+            }
+          ]
+        },
+        {
+          "id": "court-3-synthetic",
+          "name": "Court 3 - Cushioned Synthetic Mat",
+          "metadata": {
+            "surface": "Cushioned Vinyl Mat",
+            "addons": [
+              {
+                "price": 60,
+                "icon": "??",
+                "name": "Yonex Carbon Racket Rental",
+                "id": "racket-carbon",
+                "desc": "High tension pre-strung racket"
+              },
+              {
+                "price": 40,
+                "icon": "??",
+                "name": "Super Tacky Grip Wrap",
+                "id": "grip-wrap",
+                "desc": "Anti-slip replacement grip"
+              }
+            ],
+            "badge": "??? Joint Friendly"
+          },
+          "description": "Multi-layer cushioned vinyl court optimized for joint safety.",
+          "images": [
+            "https://images.unsplash.com/photo-1599474924187-334a4ae5bd3c?w=800&q=80"
+          ],
+          "price": 350
+        }
+      ],
+      "merchantName": "Smash Academy",
+      "originalCategory": "Badminton Court",
+      "mandatoryRule": {
+        "icon": "??",
+        "title": "Non-Marking Badminton Shoes Mandatory",
+        "desc": "Strictly flat non-marking gum-rubber soles required on synthetic/wooden courts."
+      },
+      "mainImageUrl": "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=1200&q=80"
+    },
+    "isActive": true,
+    "rating": 5,
+    "reviewCount": 0,
+    "category": {
+      "id": "92c3bfe5-661c-460c-9e22-6637e3df14dc",
+      "name": "Badminton Court",
+      "slug": "badminton"
+    },
+    "merchant": {
+      "id": "de764dbc-2b2b-6079-d829-4633f41fd826",
+      "name": "Smash Academy",
+      "city": "Chennai",
+      "rating": 5,
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "services": []
+    },
+    "createdAt": "2026-11-14T04:41:59.673Z",
+    "categoryId": "712cb562-7f6a-4fea-9145-00c6da59ebc3",
+    "shortDescription": "Professional BWF approved badminton courts with synthetic and teak wood surfaces.",
+    "maxCapacity": 1,
+    "isTimingEnabled": false,
+    "timingDetails": "",
+    "isCapacityEnabled": false,
+    "participantCapacity": 0,
+    "isAddonsEnabled": false,
+    "addOns": [],
+    "isTipsEnabled": false,
+    "tipsAndGuidelines": "",
+    "isRestrictionsEnabled": false,
+    "restrictions": "",
+    "isOffersEnabled": false,
+    "offersAndDiscounts": "",
+    "isInstructionsEnabled": false,
+    "specialInstructions": ""
+  },
+  {
     "id": "svc-1793254384468",
     "merchantId": "7d24a2aa-b792-554b-1bf8-b3f392999a3f",
     "name": "resort",

@@ -1,5 +1,401 @@
 [
   {
+    "id": "1794655534405",
+    "ref": "BK-M31BZC",
+    "serviceId": "svc-basketball-t106",
+    "serviceName": "Hoop Kings Arena — Basketball Court",
+    "merchantName": "Hoop Kings Arena",
+    "isLuxeBlindBooking": false,
+    "realHotelName": "Hoop Kings Arena",
+    "maskedSecretName": "Hoop Kings Arena",
+    "merchantId": "ad72ab0e-4361-aed4-d236-117c907068e9",
+    "category": "Basketball Court Booking",
+    "date": "2026-11-14",
+    "time": "2026-11-14 at 09:00 AM - 10:00 AM (1 Hour)",
+    "amount": 1209,
+    "selectedAddons": [
+      {
+        "id": "spalding-ball",
+        "name": "Spalding TF-1000 Indoor Game Ball",
+        "price": 100,
+        "icon": "🏀",
+        "desc": "Composite microfiber leather basketball inflated to 8.5 PSI."
+      }
+    ],
+    "status": "CONFIRMED",
+    "customerName": "VISHNU KUMAR KR",
+    "customerEmail": "VISHNU@bnxmail.com",
+    "notes": "",
+    "metadata": {
+      "isFacility": true,
+      "facilityName": "Hoop Kings Arena",
+      "merchantName": "Hoop Kings Arena",
+      "branchName": "Hoop Kings Arena",
+      "address": "BokSpot Sports Hub Arena, Stadium Road, Chennai",
+      "amenities": [
+        "FIBA Certified Hardwood Maple Floor",
+        "Spring-Loaded Breakaway Dunk Rims",
+        "LED 24-Second Shot Clocks & Electronic Scoreboard",
+        "Air-Conditioned Indoor Arena",
+        "Locker Rooms & Shower Facilities",
+        "Secure Parking"
+      ],
+      "mandatoryRule": {
+        "icon": "🏀",
+        "title": "Basketball High-Tops or Clean Court Shoes Mandatory",
+        "desc": "Indoor wooden flooring requires dust-free grip soles. Outdoor street shoes strictly prohibited."
+      },
+      "supervisorTitle": "BFI Certified Court Official",
+      "includedGear": "Regulation Rims with Anti-Whip Nets, Padded Backboards & Score Table",
+      "listings": [
+        {
+          "id": "court-full-hardwood",
+          "name": "Full Court — Maple Hardwood Arena",
+          "price": 900,
+          "description": "Complete 94x50 ft FIBA regulation court with two breakaway dunk hoops and official lines.",
+          "images": [
+            "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80",
+            "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1200&q=80",
+            "https://images.unsplash.com/photo-1519766304817-4f37bda74a29?w=800&q=80",
+            "https://images.unsplash.com/photo-1505666287802-931dc83948e9?w=800&q=80"
+          ],
+          "metadata": {
+            "surface": "Hardwood Maple Floor",
+            "badge": "👑 Full Court 5v5",
+            "addons": [
+              {
+                "id": "spalding-ball",
+                "name": "Spalding TF-1000 Indoor Game Ball",
+                "price": 100,
+                "icon": "🏀",
+                "desc": "Composite microfiber leather basketball inflated to 8.5 PSI."
+              },
+              {
+                "id": "team-jerseys",
+                "name": "Team Numbered Reversible Jerseys (10 Pack)",
+                "price": 150,
+                "icon": "🎽",
+                "desc": "Breathable dry-fit numbered scrimmage pinnies."
+              },
+              {
+                "id": "shotclock-operator",
+                "name": "Shot-clock & Scoreboard Table Official",
+                "price": 250,
+                "icon": "⏱️",
+                "desc": "Operates 24-second buzzer and live arena scoreboard."
+              }
+            ],
+            "mandatoryRule": {
+              "icon": "🏀",
+              "title": "Basketball High-Tops or Clean Court Shoes Mandatory",
+              "desc": "Indoor wooden flooring requires dust-free grip soles. Outdoor street shoes strictly prohibited."
+            },
+            "equipmentAddons": "Regulation Rims with Anti-Whip Nets, Padded Backboards & Score Table",
+            "refereeOrManager": "BFI Certified Court Official"
+          }
+        },
+        {
+          "id": "court-half-a",
+          "name": "Half Court A — 3x3 Streetball Hub",
+          "price": 500,
+          "description": "Dedicated half-court for 3x3 half-court pick-up games and shooting drill practice.",
+          "images": [
+            "https://images.unsplash.com/photo-1519766304817-4f37bda74a29?w=800&q=80",
+            "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1200&q=80",
+            "https://images.unsplash.com/photo-1519766304817-4f37bda74a29?w=800&q=80",
+            "https://images.unsplash.com/photo-1505666287802-931dc83948e9?w=800&q=80"
+          ],
+          "metadata": {
+            "surface": "Cushioned Polyurethane Floor",
+            "badge": "⚡ 3v3 Half Court",
+            "addons": [
+              {
+                "id": "spalding-ball",
+                "name": "Spalding TF-1000 Indoor Game Ball",
+                "price": 100,
+                "icon": "🏀",
+                "desc": "Composite microfiber leather basketball inflated to 8.5 PSI."
+              },
+              {
+                "id": "team-jerseys",
+                "name": "Team Numbered Reversible Jerseys (10 Pack)",
+                "price": 150,
+                "icon": "🎽",
+                "desc": "Breathable dry-fit numbered scrimmage pinnies."
+              },
+              {
+                "id": "shotclock-operator",
+                "name": "Shot-clock & Scoreboard Table Official",
+                "price": 250,
+                "icon": "⏱️",
+                "desc": "Operates 24-second buzzer and live arena scoreboard."
+              }
+            ],
+            "mandatoryRule": {
+              "icon": "🏀",
+              "title": "Basketball High-Tops or Clean Court Shoes Mandatory",
+              "desc": "Indoor wooden flooring requires dust-free grip soles. Outdoor street shoes strictly prohibited."
+            },
+            "equipmentAddons": "Regulation Rims with Anti-Whip Nets, Padded Backboards & Score Table",
+            "refereeOrManager": "BFI Certified Court Official"
+          }
+        }
+      ],
+      "addons": [
+        {
+          "id": "spalding-ball",
+          "name": "Spalding TF-1000 Indoor Game Ball",
+          "price": 100,
+          "icon": "🏀",
+          "desc": "Composite microfiber leather basketball inflated to 8.5 PSI."
+        },
+        {
+          "id": "team-jerseys",
+          "name": "Team Numbered Reversible Jerseys (10 Pack)",
+          "price": 150,
+          "icon": "🎽",
+          "desc": "Breathable dry-fit numbered scrimmage pinnies."
+        },
+        {
+          "id": "shotclock-operator",
+          "name": "Shot-clock & Scoreboard Table Official",
+          "price": 250,
+          "icon": "⏱️",
+          "desc": "Operates 24-second buzzer and live arena scoreboard."
+        }
+      ],
+      "selectedAddons": [
+        {
+          "id": "spalding-ball",
+          "name": "Spalding TF-1000 Indoor Game Ball",
+          "price": 100,
+          "icon": "🏀",
+          "desc": "Composite microfiber leather basketball inflated to 8.5 PSI."
+        }
+      ],
+      "addonsCost": 100,
+      "turfBooking": {
+        "venueName": "Hoop Kings Arena",
+        "address": "BokSpot Sports Hub Arena, Stadium Road, Chennai",
+        "slotDate": "2026-11-14",
+        "slotTime": "09:00 AM - 10:00 AM",
+        "selectedAddons": [
+          {
+            "id": "spalding-ball",
+            "name": "Spalding TF-1000 Indoor Game Ball",
+            "price": 100,
+            "icon": "🏀",
+            "desc": "Composite microfiber leather basketball inflated to 8.5 PSI."
+          }
+        ],
+        "addonsCost": 100,
+        "baseSlotCost": 900,
+        "priceBreakdown": {
+          "archetype": "FacilityHourly",
+          "unitPrice": 900,
+          "multiplierText": "₹900/hr × 1 hr",
+          "baseTotal": 900,
+          "addonsBreakdown": [],
+          "addonsTotal": 0,
+          "securityDeposit": 0,
+          "subtotal": 900,
+          "taxAmount": 0,
+          "convenienceFee": 0,
+          "finalPayable": 1000,
+          "breakdownSummary": "₹900 / slot (1h)"
+        }
+      }
+    },
+    "bookedAt": "2026-11-14T11:25:34.405Z",
+    "paymentMethod": "upi",
+    "payMode": "FULL_ONLINE",
+    "advancePaid": 1209,
+    "balanceAtVenue": 0,
+    "isSplitEnabled": false,
+    "splitCount": 1,
+    "splitPerPerson": 1209,
+    "amountPaidByLeader": 1209,
+    "splitPaidMembers": 1,
+    "splitInitiatorPaysNow": true
+  },
+  {
+    "id": "1794633596235",
+    "ref": "BK-N0E2OY",
+    "serviceId": "court-2-wooden",
+    "serviceName": "Smash Academy — Court 2 - Teak Wood Flooring",
+    "merchantName": "Smash Academy",
+    "isLuxeBlindBooking": false,
+    "realHotelName": "Smash Academy",
+    "maskedSecretName": "Smash Academy",
+    "merchantId": "de764dbc-2b2b-6079-d829-4633f41fd826",
+    "category": "Badminton Court",
+    "date": "2026-11-16",
+    "time": "2026-11-16 at 09:00 - 10:00 (1 Hour)",
+    "amount": 631,
+    "selectedAddons": [],
+    "status": "CONFIRMED",
+    "city": "Chennai",
+    "customerName": "VIJAY",
+    "customerEmail": "Vijay@bnxmail.com",
+    "notes": "",
+    "metadata": {
+      "facilityName": "Smash Academy",
+      "listings": [
+        {
+          "id": "court-1-synthetic",
+          "name": "Court 1 - Yonex Mat (Pro Grade)",
+          "metadata": {
+            "surface": "Yonex Synthetic Mat",
+            "addons": [
+              {
+                "price": 60,
+                "icon": "??",
+                "name": "Yonex Carbon Racket Rental",
+                "id": "racket-carbon",
+                "desc": "High tension pre-strung racket"
+              },
+              {
+                "price": 50,
+                "icon": "??",
+                "name": "Non-Marking Shoes Rental (Pair)",
+                "id": "shoes-nonmarking",
+                "desc": "Sanitized gum-sole shoes"
+              },
+              {
+                "price": 180,
+                "icon": "??",
+                "name": "Yonex Mavis 350 Shuttles (Tube of 3)",
+                "id": "shuttle-nylon",
+                "desc": "Durable yellow nylon shuttles"
+              }
+            ],
+            "badge": "?? Tournament Standard"
+          },
+          "description": "BWF standard 4.5mm synthetic mat with tournament level shock absorption.",
+          "images": [
+            "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=800&q=80"
+          ],
+          "price": 350
+        },
+        {
+          "id": "court-2-wooden",
+          "name": "Court 2 - Teak Wood Flooring",
+          "metadata": {
+            "surface": "Teak Wood Floor",
+            "addons": [
+              {
+                "price": 60,
+                "icon": "??",
+                "name": "Yonex Carbon Racket Rental",
+                "id": "racket-carbon",
+                "desc": "High tension pre-strung racket"
+              },
+              {
+                "price": 50,
+                "icon": "??",
+                "name": "Non-Marking Shoes Rental (Pair)",
+                "id": "shoes-nonmarking",
+                "desc": "Sanitized gum-sole shoes"
+              }
+            ],
+            "badge": "? Fast Rebound"
+          },
+          "description": "High-rebound seasoned teak wood court for fast competitive play.",
+          "images": [
+            "https://images.unsplash.com/photo-1613918431703-aa6325992a7e?w=800&q=80"
+          ],
+          "price": 400,
+          "schedule": [
+            {
+              "dayOfWeek": "Monday",
+              "startTime": "09:00",
+              "endTime": "10:00",
+              "price": 400
+            }
+          ]
+        },
+        {
+          "id": "court-3-synthetic",
+          "name": "Court 3 - Cushioned Synthetic Mat",
+          "metadata": {
+            "surface": "Cushioned Vinyl Mat",
+            "addons": [
+              {
+                "price": 60,
+                "icon": "??",
+                "name": "Yonex Carbon Racket Rental",
+                "id": "racket-carbon",
+                "desc": "High tension pre-strung racket"
+              },
+              {
+                "price": 40,
+                "icon": "??",
+                "name": "Super Tacky Grip Wrap",
+                "id": "grip-wrap",
+                "desc": "Anti-slip replacement grip"
+              }
+            ],
+            "badge": "??? Joint Friendly"
+          },
+          "description": "Multi-layer cushioned vinyl court optimized for joint safety.",
+          "images": [
+            "https://images.unsplash.com/photo-1599474924187-334a4ae5bd3c?w=800&q=80"
+          ],
+          "price": 350
+        }
+      ],
+      "merchantName": "Smash Academy",
+      "originalCategory": "Badminton Court",
+      "mandatoryRule": {
+        "icon": "??",
+        "title": "Non-Marking Badminton Shoes Mandatory",
+        "desc": "Strictly flat non-marking gum-rubber soles required on synthetic/wooden courts."
+      },
+      "mainImageUrl": "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=1200&q=80",
+      "selectedAddons": [
+        "Yonex Carbon Racket Rental",
+        "Non-Marking Shoes Rental (Pair)"
+      ],
+      "addonsCost": 110,
+      "turfBooking": {
+        "venueName": "Smash Academy",
+        "address": "Chennai Main Road",
+        "slotDate": "2026-11-16",
+        "slotTime": "09:00 - 10:00",
+        "selectedAddons": [
+          "Yonex Carbon Racket Rental",
+          "Non-Marking Shoes Rental (Pair)"
+        ],
+        "addonsCost": 110,
+        "priceBreakdown": {
+          "archetype": "FacilityHourly",
+          "unitPrice": 400,
+          "multiplierText": "₹400/hr × 1 hr",
+          "baseTotal": 400,
+          "addonsBreakdown": [],
+          "addonsTotal": 0,
+          "securityDeposit": 0,
+          "subtotal": 400,
+          "taxAmount": 0,
+          "convenienceFee": 0,
+          "finalPayable": 510,
+          "breakdownSummary": "₹400 / slot"
+        }
+      }
+    },
+    "bookedAt": "2026-11-14T05:19:56.235Z",
+    "paymentMethod": "upi",
+    "payMode": "FULL_ONLINE",
+    "advancePaid": 631,
+    "balanceAtVenue": 0,
+    "isSplitEnabled": false,
+    "splitCount": 1,
+    "splitPerPerson": 631,
+    "amountPaidByLeader": 631,
+    "splitPaidMembers": 1,
+    "splitInitiatorPaysNow": true
+  },
+  {
     "id": "1794558211430",
     "ref": "BK-JD4YA5",
     "serviceId": "svc-1792650328000",
@@ -2495,27 +2891,29 @@
   {
     "ref": "BOK-HTL-8921",
     "serviceId": "svc-r503",
-    "serviceName": "Saturday Night Prime Football Turf Match",
+    "serviceName": "Smash Academy - Court 1 - Yonex Mat (Pro Grade)",
     "merchantName": "Sacred Yatra Tours",
-    "merchantId": "4d8183bb-47df-5ffc-ba8e-a775b484dc50",
+    "merchantId": "de764dbc-2b2b-6079-d829-4633f41fd826",
     "category": "Pilgrimage Packages",
-    "date": "2026-10-24",
-    "time": "08:00 PM - 09:00 PM",
-    "amount": 1500,
-    "status": "COMPLETED",
-    "customerName": "Direct Client - Sacred Yatra Tours",
-    "customerPhone": "+91 9123456780",
+    "date": "2026-11-14",
+    "time": "06:00 PM - 07:00 PM",
+    "amount": 460,
+    "status": "CONFIRMED",
+    "customerName": "Karthik Raja",
+    "customerPhone": "+91 98401 23456",
     "bookingDate": "2026-10-30",
     "timeSlot": "04:00 PM",
     "metadata": {
-      "archetype": "Accommodation",
-      "payMode": "PARTIAL_ADVANCE",
-      "advancePaid": 450,
-      "balanceAtVenue": 1050,
-      "isSplitEnabled": true,
-      "splitCount": 3,
-      "amountPaidByLeader": 150
-    }
+      "courtUnit": "Court 1 - Yonex Mat (Pro Grade)",
+      "selectedAddons": [
+        "Yonex Carbon Racket Rental (?60)",
+        "Non-Marking Shoes Rental (?50)"
+      ],
+      "surface": "Yonex Synthetic Mat",
+      "addonsCost": 110
+    },
+    "bookingType": "FACILITY_HOURLY",
+    "payMode": "100% Online UPI"
   },
   {
     "id": "test-doc-001",

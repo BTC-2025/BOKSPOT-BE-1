@@ -166,5 +166,48 @@
       "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=80"
     ],
     "name": "Backpackers Hostel"
+  },
+  {
+    "id": "de764dbc-2b2b-6079-d829-4633f41fd826",
+    "metadata": {
+      "isLuggageStorageEnabled": true,
+      "luggageHourlyRate": 49,
+      "luggageDayPassRate": 500,
+      "rateHandbag": 25,
+      "rateBackpack": 39,
+      "rateTrolley": 49,
+      "rateBox": 59,
+      "rateBulky": 79,
+      "luggageMaxCapacity": 10,
+      "isPetFriendly": false,
+      "isMysteryModeOptIn": true,
+      "checkInTime": "12:00 PM",
+      "checkOutTime": "11:00 AM",
+      "operatingHours": "24/7 Front Desk",
+      "isPgProperty": false,
+      "pgGenderType": "coliving",
+      "pgFoodIncluded": true,
+      "pgGateCurfew": "24/7 Biometric Entry (No Curfew)",
+      "pgNoticePeriod": "15 Days",
+      "hasLadyWarden": true,
+      "zeroMaleFloorAccess": true,
+      "hasReceptionVisitorLobby": true,
+      "hasParentsDaytimeLounge": true,
+      "hasPeriodEmergencyKit": true,
+      "hasPrivateDryingZone": true,
+      "hasVanityMirrorSocket": true,
+      "hasPackedLunchBox": true,
+      "hasContactlessParcelHub": true,
+      "parentMotherStayAllowed": true,
+      "hasCoworkingLounge": true,
+      "hasHighSpeedDualWifi": true,
+      "hasFullPowerBackup": true,
+      "hasGamingLounge": true,
+      "hasRooftopCafe": true,
+      "hasModularKitchen": true,
+      "hasFitnessGym": true,
+      "hasCommercialDryerLaundry": true,
+      "hasEvChargingPoint": false
+    }
   }
 ]
