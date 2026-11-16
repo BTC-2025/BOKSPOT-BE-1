@@ -209,5 +209,58 @@
       "hasCommercialDryerLaundry": true,
       "hasEvChargingPoint": false
     }
+  },
+  {
+    "id": "ad72ab0e-4361-aed4-d236-117c907068e9",
+    "metadata": {
+      "isLuggageStorageEnabled": true,
+      "luggageHourlyRate": 49,
+      "luggageDayPassRate": 500,
+      "isMysteryModeOptIn": true,
+      "isPgProperty": false,
+      "pgGenderType": "coliving",
+      "pgFoodIncluded": true,
+      "pgGateCurfew": "24/7 Biometric Entry (No Curfew)",
+      "pgNoticePeriod": "15 Days",
+      "rateHandbag": 25,
+      "rateBackpack": 39,
+      "rateTrolley": 49,
+      "rateBox": 59,
+      "rateBulky": 79,
+      "luggageMaxCapacity": 10,
+      "isPetFriendly": false,
+      "checkInTime": "12:00 PM",
+      "checkOutTime": "11:00 AM",
+      "operatingHours": "24/7 Front Desk",
+      "hasLadyWarden": true,
+      "zeroMaleFloorAccess": true,
+      "hasReceptionVisitorLobby": true,
+      "hasParentsDaytimeLounge": true,
+      "hasPeriodEmergencyKit": true,
+      "hasPrivateDryingZone": true,
+      "hasVanityMirrorSocket": true,
+      "hasPackedLunchBox": true,
+      "hasContactlessParcelHub": true,
+      "parentMotherStayAllowed": true,
+      "hasCoworkingLounge": true,
+      "hasHighSpeedDualWifi": true,
+      "hasFullPowerBackup": true,
+      "hasGamingLounge": true,
+      "hasRooftopCafe": true,
+      "hasModularKitchen": true,
+      "hasFitnessGym": true,
+      "hasCommercialDryerLaundry": true,
+      "hasEvChargingPoint": false,
+      "paymentPolicy": {
+        "allowFullPayment": true,
+        "allowPartialAdvance": true,
+        "advancePercent": 30,
+        "allowPayAtVenue": true,
+        "allowGroupSplit": true
+      }
+    }
+  },
+  {
+    "id": "635bce5c-6d3a-56b4-b7ed-9320ea055dae"
   }
 ]
