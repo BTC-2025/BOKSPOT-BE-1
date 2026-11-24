@@ -149,6 +149,8 @@ let ServicesController = ServicesController_1 = class ServicesController {
         return name.replace(/[^a-z0-9]+/g, '-');
     }
     async create(merchantId, dto) {
+        // Invalidate cache immediately
+        ServicesController_1.servicesResponseCache = {};
         try {
             const result = await this.servicesService.create(merchantId, dto);
             // Also persist to shared-services.json
@@ -308,12 +310,18 @@ let ServicesController = ServicesController_1 = class ServicesController {
         }
     }
     async update(id, dto) {
+        // Invalidate memory cache so next findAll returns fresh data immediately
+        ServicesController_1.servicesResponseCache = {};
         try {
             const res = await this.servicesService.update(id, dto);
             const all = this.readSharedServices();
             const idx = all.findIndex((s) => s.id === id);
             if (idx !== -1) {
-                all[idx] = { ...all[idx], ...dto };
+                all[idx] = {
+                    ...all[idx],
+                    ...dto,
+                    metadata: { ...(all[idx].metadata || {}), ...(dto.metadata || {}) }
+                };
                 this.writeSharedServices(all);
             }
             return res;
@@ -321,13 +329,55 @@ let ServicesController = ServicesController_1 = class ServicesController {
         catch (err) {
             console.warn('DB update failed, updating shared-services.json:', err.message);
             const all = this.readSharedServices();
+            const metadata = dto.metadata || {};
+            const catName = metadata.originalCategory || 'Football Turf';
+            const catSlug = this.resolveCategorySlug(catName);
             const idx = all.findIndex((s) => s.id === id);
             if (idx !== -1) {
-                all[idx] = { ...all[idx], ...dto };
+                all[idx] = {
+                    ...all[idx],
+                    ...dto,
+                    metadata: { ...(all[idx].metadata || {}), ...(dto.metadata || {}) }
+                };
                 this.writeSharedServices(all);
                 return { success: true, data: all[idx] };
             }
-            return { success: true, data: dto };
+            else {
+                // If service was generated dynamically (e.g. svc-football-turf-t102), upsert it directly into shared-services.json
+                const newRecord = {
+                    id,
+                    name: dto.name || 'Football Turf',
+                    slug: (dto.name || 'football-turf').toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+                    description: dto.description || '',
+                    basePrice: dto.basePrice || 0,
+                    price: dto.basePrice || 0,
+                    durationMinutes: dto.durationMinutes || 60,
+                    images: dto.images || [],
+                    metadata: dto.metadata || {},
+                    isActive: true,
+                    rating: 5.0,
+                    reviewCount: 0,
+                    category: {
+                        id: dto.categoryId || 'cat-turf',
+                        name: catName,
+                        slug: catSlug
+                    },
+                    merchantId: metadata.merchantId || '7c996ce5-e515-8b61-5039-83c06a21e9e5',
+                    merchant: {
+                        id: metadata.merchantId || '7c996ce5-e515-8b61-5039-83c06a21e9e5',
+                        name: metadata.merchantName || 'Arena 5 Turf',
+                        city: 'Chennai',
+                        rating: 5.0,
+                        latitude: 13.0827,
+                        longitude: 80.2707,
+                        services: []
+                    },
+                    createdAt: new Date().toISOString()
+                };
+                all.unshift(newRecord);
+                this.writeSharedServices(all);
+                return { success: true, data: newRecord };
+            }
         }
     }
     async delete(id) {

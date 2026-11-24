@@ -1,5 +1,53 @@
 [
   {
+    "id": "svc-football-turf-t102",
+    "name": "Football Turf Master Units",
+    "slug": "football-turf-master-units",
+    "description": "",
+    "basePrice": 1200,
+    "price": 1200,
+    "durationMinutes": 60,
+    "images": [],
+    "metadata": {
+      "merchantId": "7c996ce5-e515-8b61-5039-83c06a21e9e5",
+      "merchantName": "Arena 5 Turf",
+      "originalCategory": "Football Turf",
+      "listings": [
+        {
+          "id": "pitch-7v7-main",
+          "name": "7v7 Championship Pitch (Full Field)",
+          "price": 1800,
+          "active": true
+        },
+        {
+          "id": "pitch-5v5-a",
+          "name": "5v5 Astro Turf (Pitch A)",
+          "price": 1200,
+          "active": true
+        }
+      ]
+    },
+    "isActive": true,
+    "rating": 5,
+    "reviewCount": 0,
+    "category": {
+      "id": "712cb562-7f6a-4fea-9145-00c6da59ebc3",
+      "name": "Football Turf",
+      "slug": "football-turf"
+    },
+    "merchantId": "7c996ce5-e515-8b61-5039-83c06a21e9e5",
+    "merchant": {
+      "id": "7c996ce5-e515-8b61-5039-83c06a21e9e5",
+      "name": "Arena 5 Turf",
+      "city": "Chennai",
+      "rating": 5,
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "services": []
+    },
+    "createdAt": "2026-11-24T05:25:18.045Z"
+  },
+  {
     "id": "svc-1794631319673",
     "merchantId": "de764dbc-2b2b-6079-d829-4633f41fd826",
     "name": "Badminton Court Master Units",
@@ -1258,5 +1306,947 @@
     "branchId": "branch-grand-annanagar",
     "branchName": "Grand Hotel - Anna Nagar",
     "address": "2nd Avenue, Roundtana, Anna Nagar, Chennai"
+  },
+  {
+    "id": "svc-cricket-ground-t103",
+    "merchantId": "5a8fe3b6-9787-e911-bd92-12be14cde4e6",
+    "name": "Cricket Ground Master Units",
+    "slug": "cricket-ground",
+    "description": "Cricket Ground Master Units",
+    "basePrice": 1500,
+    "price": 1500,
+    "durationMinutes": 60,
+    "images": [
+      "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=1200&q=80"
+    ],
+    "metadata": {
+      "merchantId": "5a8fe3b6-9787-e911-bd92-12be14cde4e6",
+      "merchantName": "Pitch Perfect Grounds",
+      "originalCategory": "Cricket Ground",
+      "listings": [
+        {
+          "id": "pitch-main-turf",
+          "name": "Full Ground & 22-Yard Turf Pitch",
+          "price": 2500,
+          "active": true
+        },
+        {
+          "id": "nets-box-cricket",
+          "name": "Floodlit Box Cricket Net (Lane 1)",
+          "price": 1000,
+          "active": true
+        }
+      ]
+    },
+    "isActive": true,
+    "rating": 4.9,
+    "reviewCount": 35,
+    "category": {
+      "id": "cat-cricket-ground",
+      "name": "Cricket Ground",
+      "slug": "cricket-ground"
+    },
+    "merchant": {
+      "id": "5a8fe3b6-9787-e911-bd92-12be14cde4e6",
+      "name": "Pitch Perfect Grounds",
+      "city": "Chennai",
+      "rating": 4.9,
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "services": []
+    },
+    "createdAt": "2026-11-24T05:30:55.238Z"
+  },
+  {
+    "id": "svc-tennis-t105",
+    "merchantId": "1ededc46-c2c0-1e09-a0be-30c4b441bbae",
+    "name": "Tennis Court Master Units",
+    "slug": "tennis",
+    "description": "Tennis Court Master Units",
+    "basePrice": 400,
+    "price": 400,
+    "durationMinutes": 60,
+    "images": [
+      "https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?w=1200&q=80"
+    ],
+    "metadata": {
+      "merchantId": "1ededc46-c2c0-1e09-a0be-30c4b441bbae",
+      "merchantName": "Grand Slam Club",
+      "originalCategory": "Tennis Court",
+      "listings": [
+        {
+          "id": "court-clay-1",
+          "name": "Court 1 - Red Clay Court (Rolled)",
+          "price": 500,
+          "active": true
+        },
+        {
+          "id": "court-hard-2",
+          "name": "Court 2 - US Open DecoTurf Hard Court",
+          "price": 400,
+          "active": true
+        }
+      ]
+    },
+    "isActive": true,
+    "rating": 4.9,
+    "reviewCount": 35,
+    "category": {
+      "id": "cat-tennis",
+      "name": "Tennis Court",
+      "slug": "tennis"
+    },
+    "merchant": {
+      "id": "1ededc46-c2c0-1e09-a0be-30c4b441bbae",
+      "name": "Grand Slam Club",
+      "city": "Chennai",
+      "rating": 4.9,
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "services": []
+    },
+    "createdAt": "2026-11-24T05:30:55.240Z"
+  },
+  {
+    "id": "svc-basketball-t106",
+    "merchantId": "ad72ab0e-4361-aed4-d236-117c907068e9",
+    "name": "Basketball Court Master Units",
+    "slug": "basketball",
+    "description": "Basketball Court Master Units",
+    "basePrice": 500,
+    "price": 500,
+    "durationMinutes": 60,
+    "images": [
+      "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1200&q=80"
+    ],
+    "metadata": {
+      "merchantId": "ad72ab0e-4361-aed4-d236-117c907068e9",
+      "merchantName": "Hoop Kings Arena",
+      "originalCategory": "Basketball Court",
+      "listings": [
+        {
+          "id": "court-fiba-full",
+          "name": "Full Court FIBA Hardwood (Indoor AC)",
+          "price": 900,
+          "active": true
+        },
+        {
+          "id": "court-outdoor-half",
+          "name": "Half Court 3x3 Asphalt Hoop",
+          "price": 500,
+          "active": true
+        }
+      ]
+    },
+    "isActive": true,
+    "rating": 4.9,
+    "reviewCount": 35,
+    "category": {
+      "id": "cat-basketball",
+      "name": "Basketball Court",
+      "slug": "basketball"
+    },
+    "merchant": {
+      "id": "ad72ab0e-4361-aed4-d236-117c907068e9",
+      "name": "Hoop Kings Arena",
+      "city": "Chennai",
+      "rating": 4.9,
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "services": []
+    },
+    "createdAt": "2026-11-24T05:30:55.240Z"
+  },
+  {
+    "id": "svc-swimming-t107",
+    "merchantId": "10af45e9-939e-0b14-5bd6-c4b21fb3fe8a",
+    "name": "Swimming Pool Master Units",
+    "slug": "swimming",
+    "description": "Swimming Pool Master Units",
+    "basePrice": 200,
+    "price": 200,
+    "durationMinutes": 60,
+    "images": [
+      "https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?w=1200&q=80"
+    ],
+    "metadata": {
+      "merchantId": "10af45e9-939e-0b14-5bd6-c4b21fb3fe8a",
+      "merchantName": "Blue Wave Pool",
+      "originalCategory": "Swimming Pool Slots",
+      "listings": [
+        {
+          "id": "lane-lap-swim",
+          "name": "Lap Swimming Lane (Fast/Medium Pace)",
+          "price": 200,
+          "active": true
+        },
+        {
+          "id": "zone-leisure-pool",
+          "name": "Leisure Pool & Shallow Family Zone",
+          "price": 180,
+          "active": true
+        }
+      ]
+    },
+    "isActive": true,
+    "rating": 4.9,
+    "reviewCount": 35,
+    "category": {
+      "id": "cat-swimming",
+      "name": "Swimming Pool Slots",
+      "slug": "swimming"
+    },
+    "merchant": {
+      "id": "10af45e9-939e-0b14-5bd6-c4b21fb3fe8a",
+      "name": "Blue Wave Pool",
+      "city": "Chennai",
+      "rating": 4.9,
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "services": []
+    },
+    "createdAt": "2026-11-24T05:30:55.240Z"
+  },
+  {
+    "id": "svc-play-arena-g102",
+    "merchantId": "bdb9deee-6122-12de-c16b-26fad5fb0028",
+    "name": "Indoor Play Arena Master Units",
+    "slug": "play-arena",
+    "description": "Indoor Play Arena Master Units",
+    "basePrice": 350,
+    "price": 350,
+    "durationMinutes": 60,
+    "images": [
+      "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=1200&q=80"
+    ],
+    "metadata": {
+      "merchantId": "bdb9deee-6122-12de-c16b-26fad5fb0028",
+      "merchantName": "JumpZone Park",
+      "originalCategory": "Indoor Play Arena",
+      "listings": [
+        {
+          "id": "pass-trampoline-1hr",
+          "name": "Full Arena Access (1-Hour Jump Pass)",
+          "price": 350,
+          "active": true
+        },
+        {
+          "id": "pass-trampoline-2hr",
+          "name": "Pro Session Pass (2-Hour Unlimited Jump)",
+          "price": 599,
+          "active": true
+        }
+      ]
+    },
+    "isActive": true,
+    "rating": 4.9,
+    "reviewCount": 35,
+    "category": {
+      "id": "cat-play-arena",
+      "name": "Indoor Play Arena",
+      "slug": "play-arena"
+    },
+    "merchant": {
+      "id": "bdb9deee-6122-12de-c16b-26fad5fb0028",
+      "name": "JumpZone Park",
+      "city": "Chennai",
+      "rating": 4.9,
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "services": []
+    },
+    "createdAt": "2026-11-24T05:30:55.240Z"
+  },
+  {
+    "id": "svc-dining-r404",
+    "merchantId": "b23bbd1f-3c8d-56dd-7143-e34153dec1fd",
+    "name": "Grand Temple Restaurant Table Reservations",
+    "slug": "dining",
+    "description": "Authentic heritage dining & rooftop table reservations.",
+    "basePrice": 0,
+    "price": 950,
+    "durationMinutes": 60,
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80"
+    ],
+    "metadata": {
+      "merchantId": "b23bbd1f-3c8d-56dd-7143-e34153dec1fd",
+      "merchantName": "Grand Temple Restaurant",
+      "originalCategory": "Restaurant Table Reservation",
+      "listings": [
+        {
+          "id": "tbl-cozy-2",
+          "name": "Cozy Couple Table (2 Seater)",
+          "price": 0,
+          "depositAmount": 0,
+          "active": true
+        },
+        {
+          "id": "tbl-family-4",
+          "name": "Family Booth Dining (4 Seater)",
+          "price": 0,
+          "depositAmount": 0,
+          "active": true
+        },
+        {
+          "id": "tbl-large-6",
+          "name": "Celebration Grand Table (6 - 8 Seater)",
+          "price": 200,
+          "depositAmount": 200,
+          "active": true
+        },
+        {
+          "id": "tbl-pdr",
+          "name": "Royal Private Dining Suite (PDR)",
+          "images": [],
+          "active": true,
+          "price": 500,
+          "originalPrice": 500,
+          "priceUnit": "per reservation / table deposit",
+          "isTokenAdvanceEnabled": true,
+          "foodFacilityProvided": true,
+          "tenureDiscounts": {
+            "mo3": 5,
+            "mo3Pct": 5,
+            "mo3Price": 475,
+            "mo6": 10,
+            "mo6Pct": 10,
+            "mo6Price": 450,
+            "mo11": 15,
+            "mo11Pct": 15,
+            "mo11Price": 425
+          },
+          "duration": 30,
+          "metadata": {
+            "surfaceType": "",
+            "turfSize": "",
+            "facilityName": "Royal Private Dining Suite (PDR)",
+            "refereeOrManager": "",
+            "totalUnits": 1,
+            "hourlyRate": 500,
+            "gallery": [],
+            "addons": [],
+            "originalPrice": 500,
+            "priceUnit": "per reservation / table deposit",
+            "isTokenAdvanceEnabled": true,
+            "foodFacilityProvided": true,
+            "tenureDiscounts": {
+              "mo3": 5,
+              "mo3Pct": 5,
+              "mo3Price": 475,
+              "mo6": 10,
+              "mo6Pct": 10,
+              "mo6Price": 450,
+              "mo11": 15,
+              "mo11Pct": 15,
+              "mo11Price": 425
+            },
+            "gstEnabled": false,
+            "gstPercentage": 0
+          },
+          "gstEnabled": false,
+          "gstPercentage": 0,
+          "totalUnits": 1,
+          "inventoryLeft": 1,
+          "perks": [],
+          "amenities": []
+        }
+      ],
+      "isDining": true,
+      "costForTwo": 950,
+      "facilityName": "Grand Temple Restaurant",
+      "mainImageUrl": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80"
+    },
+    "isActive": true,
+    "rating": 4.8,
+    "reviewCount": 840,
+    "category": {
+      "id": "cat-dining",
+      "name": "Restaurant Table Reservation",
+      "slug": "dining"
+    },
+    "merchant": {
+      "id": "b23bbd1f-3c8d-56dd-7143-e34153dec1fd",
+      "name": "Grand Temple Restaurant",
+      "city": "Chennai",
+      "rating": 4.8,
+      "latitude": 13.0334,
+      "longitude": 80.2678,
+      "services": []
+    },
+    "createdAt": "2026-11-24T05:36:45.971Z",
+    "categoryId": "712cb562-7f6a-4fea-9145-00c6da59ebc3",
+    "shortDescription": "Authentic heritage dining & rooftop table reservations.",
+    "maxCapacity": 1,
+    "isTimingEnabled": false,
+    "timingDetails": "",
+    "isCapacityEnabled": false,
+    "participantCapacity": 0,
+    "isAddonsEnabled": false,
+    "addOns": [],
+    "isTipsEnabled": false,
+    "tipsAndGuidelines": "",
+    "isRestrictionsEnabled": false,
+    "restrictions": "",
+    "isOffersEnabled": false,
+    "offersAndDiscounts": "",
+    "isInstructionsEnabled": false,
+    "specialInstructions": ""
+  },
+  {
+    "id": "svc-wellness-s303",
+    "merchantId": "18bc5a90-2570-dd5a-eba7-b5c244f6147c",
+    "name": "Style Studio Luxury Salon & Urban Spa",
+    "slug": "salons",
+    "description": "Premium salon treatments and urban spa rituals.",
+    "basePrice": 499,
+    "price": 499,
+    "durationMinutes": 45,
+    "images": [
+      "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&q=80"
+    ],
+    "metadata": {
+      "merchantId": "18bc5a90-2570-dd5a-eba7-b5c244f6147c",
+      "merchantName": "Style Studio",
+      "originalCategory": "Salon / Spa Appointment",
+      "listings": [
+        {
+          "id": "trt-haircut-men",
+          "name": "Signature Precision Haircut & Styling",
+          "price": 499,
+          "originalPrice": 650,
+          "duration": 30,
+          "active": true
+        },
+        {
+          "id": "trt-beard-spa",
+          "name": "Royal Beard Sculpting & Hot Towel Treatment",
+          "price": 349,
+          "originalPrice": 450,
+          "duration": 20,
+          "active": true
+        },
+        {
+          "id": "trt-hair-women",
+          "name": "Couture Haircut & Deep Conditioning Keratin",
+          "price": 899,
+          "originalPrice": 1200,
+          "duration": 45,
+          "active": true
+        },
+        {
+          "id": "trt-facial-gold",
+          "name": "24K Gold Luxury Radiance Facial",
+          "price": 1499,
+          "originalPrice": 2000,
+          "duration": 60,
+          "active": true
+        }
+      ],
+      "isWellness": true
+    },
+    "isActive": true,
+    "rating": 4.9,
+    "reviewCount": 620,
+    "category": {
+      "id": "cat-salons",
+      "name": "Salon / Spa Appointment",
+      "slug": "salons"
+    },
+    "merchant": {
+      "id": "18bc5a90-2570-dd5a-eba7-b5c244f6147c",
+      "name": "Style Studio",
+      "city": "Chennai",
+      "rating": 4.9,
+      "latitude": 13.0604,
+      "longitude": 80.2496,
+      "services": []
+    },
+    "createdAt": "2026-11-24T05:50:07.616Z"
+  },
+  {
+    "id": "svc-fitness-f202",
+    "merchantId": "f2a14cc0-5f78-aff0-8665-b91d0a464e5f",
+    "name": "ZenFit Clinic & Yoga Shala",
+    "slug": "gym-yoga",
+    "description": "State-of-the-art gym floor, functional turf, and authentic yoga batches.",
+    "basePrice": 299,
+    "price": 299,
+    "durationMinutes": 60,
+    "images": [
+      "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=80"
+    ],
+    "metadata": {
+      "merchantId": "f2a14cc0-5f78-aff0-8665-b91d0a464e5f",
+      "merchantName": "ZenFit Clinic",
+      "originalCategory": "Gym / Yoga Slot Booking",
+      "listings": [
+        {
+          "id": "pass-open-gym",
+          "name": "Day Pass (Full Open Gym & Steam)",
+          "price": 299,
+          "originalPrice": 400,
+          "duration": 60,
+          "active": true
+        },
+        {
+          "id": "pass-hiit-crossfit",
+          "name": "CrossFit & Functional Training Session",
+          "price": 399,
+          "originalPrice": 500,
+          "duration": 60,
+          "active": true
+        },
+        {
+          "id": "batch-sunrise",
+          "name": "Pranayama & Hatha Yoga Sunrise Batch",
+          "price": 349,
+          "originalPrice": 450,
+          "duration": 60,
+          "active": true
+        },
+        {
+          "id": "gym-plan-1m",
+          "name": "1-Month Unlimited All-Access Pass",
+          "price": 2499,
+          "originalPrice": 3000,
+          "duration": 30,
+          "active": true
+        }
+      ],
+      "isFitness": true
+    },
+    "isActive": true,
+    "rating": 4.8,
+    "reviewCount": 450,
+    "category": {
+      "id": "cat-fitness",
+      "name": "Gym / Yoga Slot Booking",
+      "slug": "gym-yoga"
+    },
+    "merchant": {
+      "id": "f2a14cc0-5f78-aff0-8665-b91d0a464e5f",
+      "name": "ZenFit Clinic",
+      "city": "Chennai",
+      "rating": 4.8,
+      "latitude": 12.9716,
+      "longitude": 80.2435,
+      "services": []
+    },
+    "createdAt": "2026-11-24T05:59:27.819Z"
+  },
+  {
+    "id": "svc-doctor-d101",
+    "merchantId": "6e2a5d5e-0c09-63ca-11ab-81e24d60f77a",
+    "name": "Apollo Dental & Healthcare OPD",
+    "slug": "doctor",
+    "description": "Comprehensive multi-specialty dental & clinical OPD.",
+    "basePrice": 600,
+    "price": 600,
+    "durationMinutes": 20,
+    "images": [
+      "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1200&q=80"
+    ],
+    "metadata": {
+      "merchantId": "6e2a5d5e-0c09-63ca-11ab-81e24d60f77a",
+      "merchantName": "Apollo Dental",
+      "originalCategory": "Doctor Appointment",
+      "listings": [
+        {
+          "id": "doc-rajesh",
+          "name": "Dr. Rajesh Kumar (Senior Consultant)",
+          "price": 600,
+          "originalPrice": 800,
+          "duration": 20,
+          "active": true
+        },
+        {
+          "id": "doc-priya",
+          "name": "Dr. Priya Sundaram (Associate Dental Surgeon)",
+          "price": 450,
+          "originalPrice": 600,
+          "duration": 20,
+          "active": true
+        }
+      ],
+      "isDoctor": true
+    },
+    "isActive": true,
+    "rating": 4.9,
+    "reviewCount": 520,
+    "category": {
+      "id": "cat-doctor",
+      "name": "Doctor Appointment",
+      "slug": "doctor"
+    },
+    "merchant": {
+      "id": "6e2a5d5e-0c09-63ca-11ab-81e24d60f77a",
+      "name": "Apollo Dental",
+      "city": "Chennai",
+      "rating": 4.9,
+      "latitude": 13.0418,
+      "longitude": 80.2341,
+      "services": []
+    },
+    "createdAt": "2026-11-24T06:07:33.276Z"
+  },
+  {
+    "id": "svc-movies-m101",
+    "merchantId": "635bce5c-6d3a-56b4-b7ed-9320ea055dae",
+    "name": "CineMax Multiplex Movie Experience",
+    "slug": "movies",
+    "description": "State-of-the-art IMAX Laser 3D, Dolby Atmos 7.1 multiplex cinema.",
+    "basePrice": 250,
+    "price": 250,
+    "durationMinutes": 150,
+    "images": [
+      "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200&q=80"
+    ],
+    "metadata": {
+      "merchantId": "635bce5c-6d3a-56b4-b7ed-9320ea055dae",
+      "merchantName": "CineMax Multiplex",
+      "originalCategory": "Cinema / Movie Tickets",
+      "listings": [
+        {
+          "id": "seat-classic",
+          "name": "Classic Gold Seat (Dolby Atmos)",
+          "price": 250,
+          "originalPrice": 300,
+          "active": true
+        },
+        {
+          "id": "seat-prime",
+          "name": "Prime Recliner VIP Lounge",
+          "price": 450,
+          "originalPrice": 550,
+          "active": true
+        }
+      ],
+      "isEntertainment": true
+    },
+    "isActive": true,
+    "rating": 4.8,
+    "reviewCount": 1420,
+    "category": {
+      "id": "cat-movies",
+      "name": "Cinema / Movie Tickets",
+      "slug": "movies"
+    },
+    "merchant": {
+      "id": "635bce5c-6d3a-56b4-b7ed-9320ea055dae",
+      "name": "CineMax Multiplex",
+      "city": "Chennai",
+      "rating": 4.8,
+      "latitude": 13.0588,
+      "longitude": 80.2642,
+      "services": []
+    },
+    "createdAt": "2026-11-24T06:12:02.189Z"
+  },
+  {
+    "id": "svc-theatre-m102",
+    "merchantId": "e4a69557-1b75-5404-9257-01419210fba0",
+    "name": "Nataka Kala Rangam Live Theatre",
+    "slug": "theatre",
+    "description": "Nataka Kala Rangam Live Theatre",
+    "basePrice": 300,
+    "price": 300,
+    "durationMinutes": 120,
+    "images": [
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&q=80"
+    ],
+    "metadata": {
+      "merchantId": "e4a69557-1b75-5404-9257-01419210fba0",
+      "merchantName": "Nataka Kala Rangam",
+      "originalCategory": "Theatre Shows",
+      "isEntertainment": true,
+      "listings": [
+        {
+          "id": "theatre-std",
+          "name": "Standard General Pass",
+          "price": 300,
+          "active": true
+        },
+        {
+          "id": "theatre-vip",
+          "name": "VIP Priority Admission",
+          "price": 450,
+          "active": true
+        }
+      ]
+    },
+    "isActive": true,
+    "rating": 4.8,
+    "reviewCount": 300,
+    "category": {
+      "id": "cat-theatre",
+      "name": "Theatre Shows",
+      "slug": "theatre"
+    },
+    "merchant": {
+      "id": "e4a69557-1b75-5404-9257-01419210fba0",
+      "name": "Nataka Kala Rangam",
+      "city": "Chennai",
+      "rating": 4.8,
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "services": []
+    },
+    "createdAt": "2026-11-24T06:14:25.142Z"
+  },
+  {
+    "id": "svc-concerts-m103",
+    "merchantId": "6043fd64-f325-5583-8946-e0bbb75f26ce",
+    "name": "VibeNation Arena Live Concerts",
+    "slug": "concerts",
+    "description": "VibeNation Arena Live Concerts",
+    "basePrice": 799,
+    "price": 799,
+    "durationMinutes": 120,
+    "images": [
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&q=80"
+    ],
+    "metadata": {
+      "merchantId": "6043fd64-f325-5583-8946-e0bbb75f26ce",
+      "merchantName": "VibeNation Live Events",
+      "originalCategory": "Concert Tickets",
+      "isEntertainment": true,
+      "listings": [
+        {
+          "id": "concerts-std",
+          "name": "Standard General Pass",
+          "price": 799,
+          "active": true
+        },
+        {
+          "id": "concerts-vip",
+          "name": "VIP Priority Admission",
+          "price": 1199,
+          "active": true
+        }
+      ]
+    },
+    "isActive": true,
+    "rating": 4.8,
+    "reviewCount": 300,
+    "category": {
+      "id": "cat-concerts",
+      "name": "Concert Tickets",
+      "slug": "concerts"
+    },
+    "merchant": {
+      "id": "6043fd64-f325-5583-8946-e0bbb75f26ce",
+      "name": "VibeNation Live Events",
+      "city": "Chennai",
+      "rating": 4.8,
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "services": []
+    },
+    "createdAt": "2026-11-24T06:14:25.144Z"
+  },
+  {
+    "id": "svc-events-m104",
+    "merchantId": "992e0ecc-caa7-52c5-9cb8-eb151d8048bd",
+    "name": "Grand Fiesta Carnival & Cultural Fest",
+    "slug": "events",
+    "description": "Grand Fiesta Carnival & Cultural Fest",
+    "basePrice": 499,
+    "price": 499,
+    "durationMinutes": 120,
+    "images": [
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&q=80"
+    ],
+    "metadata": {
+      "merchantId": "992e0ecc-caa7-52c5-9cb8-eb151d8048bd",
+      "merchantName": "Grand Fiesta Carnival",
+      "originalCategory": "Events & Festivals",
+      "isEntertainment": true,
+      "listings": [
+        {
+          "id": "events-std",
+          "name": "Standard General Pass",
+          "price": 499,
+          "active": true
+        },
+        {
+          "id": "events-vip",
+          "name": "VIP Priority Admission",
+          "price": 749,
+          "active": true
+        }
+      ]
+    },
+    "isActive": true,
+    "rating": 4.8,
+    "reviewCount": 300,
+    "category": {
+      "id": "cat-events",
+      "name": "Events & Festivals",
+      "slug": "events"
+    },
+    "merchant": {
+      "id": "992e0ecc-caa7-52c5-9cb8-eb151d8048bd",
+      "name": "Grand Fiesta Carnival",
+      "city": "Chennai",
+      "rating": 4.8,
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "services": []
+    },
+    "createdAt": "2026-11-24T06:14:25.144Z"
+  },
+  {
+    "id": "svc-exhibitions-m105",
+    "merchantId": "23c3e74f-1cdd-5a44-9756-76afcafd8e36",
+    "name": "Pragati Trade Expo & Gallery",
+    "slug": "exhibitions",
+    "description": "Pragati Trade Expo & Gallery",
+    "basePrice": 200,
+    "price": 200,
+    "durationMinutes": 120,
+    "images": [
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&q=80"
+    ],
+    "metadata": {
+      "merchantId": "23c3e74f-1cdd-5a44-9756-76afcafd8e36",
+      "merchantName": "Pragati Trade Expo",
+      "originalCategory": "Exhibition Entry",
+      "isEntertainment": true,
+      "listings": [
+        {
+          "id": "exhibitions-std",
+          "name": "Standard General Pass",
+          "price": 200,
+          "active": true
+        },
+        {
+          "id": "exhibitions-vip",
+          "name": "VIP Priority Admission",
+          "price": 300,
+          "active": true
+        }
+      ]
+    },
+    "isActive": true,
+    "rating": 4.8,
+    "reviewCount": 300,
+    "category": {
+      "id": "cat-exhibitions",
+      "name": "Exhibition Entry",
+      "slug": "exhibitions"
+    },
+    "merchant": {
+      "id": "23c3e74f-1cdd-5a44-9756-76afcafd8e36",
+      "name": "Pragati Trade Expo",
+      "city": "Chennai",
+      "rating": 4.8,
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "services": []
+    },
+    "createdAt": "2026-11-24T06:14:25.144Z"
+  },
+  {
+    "id": "svc-workshops-m106",
+    "merchantId": "4d4ba8c4-4b45-54ab-89e0-3f89606bd1e9",
+    "name": "Creative Canvas Masterclasses",
+    "slug": "workshops",
+    "description": "Creative Canvas Masterclasses",
+    "basePrice": 650,
+    "price": 650,
+    "durationMinutes": 120,
+    "images": [
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&q=80"
+    ],
+    "metadata": {
+      "merchantId": "4d4ba8c4-4b45-54ab-89e0-3f89606bd1e9",
+      "merchantName": "Creative Canvas Hub",
+      "originalCategory": "Workshops / Classes",
+      "isEntertainment": true,
+      "listings": [
+        {
+          "id": "workshops-std",
+          "name": "Standard General Pass",
+          "price": 650,
+          "active": true
+        },
+        {
+          "id": "workshops-vip",
+          "name": "VIP Priority Admission",
+          "price": 975,
+          "active": true
+        }
+      ]
+    },
+    "isActive": true,
+    "rating": 4.8,
+    "reviewCount": 300,
+    "category": {
+      "id": "cat-workshops",
+      "name": "Workshops / Classes",
+      "slug": "workshops"
+    },
+    "merchant": {
+      "id": "4d4ba8c4-4b45-54ab-89e0-3f89606bd1e9",
+      "name": "Creative Canvas Hub",
+      "city": "Chennai",
+      "rating": 4.8,
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "services": []
+    },
+    "createdAt": "2026-11-24T06:14:25.144Z"
+  },
+  {
+    "id": "svc-gaming-g101",
+    "merchantId": "5ef7ac5b-f41e-d1bd-8741-498129d65866",
+    "name": "Cyber Core Cafe RTX 4090 Arena",
+    "slug": "gaming",
+    "description": "Cyber Core Cafe RTX 4090 Arena",
+    "basePrice": 150,
+    "price": 150,
+    "durationMinutes": 120,
+    "images": [
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&q=80"
+    ],
+    "metadata": {
+      "merchantId": "5ef7ac5b-f41e-d1bd-8741-498129d65866",
+      "merchantName": "Cyber Core Cafe",
+      "originalCategory": "Gaming Arena Booking",
+      "isEntertainment": true,
+      "listings": [
+        {
+          "id": "gaming-std",
+          "name": "Standard General Pass",
+          "price": 150,
+          "active": true
+        },
+        {
+          "id": "gaming-vip",
+          "name": "VIP Priority Admission",
+          "price": 225,
+          "active": true
+        }
+      ]
+    },
+    "isActive": true,
+    "rating": 4.8,
+    "reviewCount": 300,
+    "category": {
+      "id": "cat-gaming",
+      "name": "Gaming Arena Booking",
+      "slug": "gaming"
+    },
+    "merchant": {
+      "id": "5ef7ac5b-f41e-d1bd-8741-498129d65866",
+      "name": "Cyber Core Cafe",
+      "city": "Chennai",
+      "rating": 4.8,
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "services": []
+    },
+    "createdAt": "2026-11-24T06:14:25.144Z"
   }
 ]

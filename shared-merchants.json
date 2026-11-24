@@ -262,5 +262,306 @@
   },
   {
     "id": "635bce5c-6d3a-56b4-b7ed-9320ea055dae"
+  },
+  {
+    "id": "7c996ce5-e515-8b61-5039-83c06a21e9e5",
+    "name": "Arena 5 Turf",
+    "slug": "arena-5-turf",
+    "description": "Premier FIFA Approved Monofilament Astro Turf with 200W Floodlight Array and spectator seating.",
+    "phone": "+91 98401 55555",
+    "address": "100 Feet Road, Kolathur",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "postalCode": "600099",
+    "latitude": 13.1234,
+    "longitude": 80.2155,
+    "rating": 5,
+    "reviewCount": 42,
+    "isVerified": true,
+    "logoUrl": "https://images.unsplash.com/photo-1529900245534-47fbf82a4fbe?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1529900245534-47fbf82a4fbe?w=1200&q=80",
+      "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&q=80"
+    ]
+  },
+  {
+    "id": "5a8fe3b6-9787-e911-bd92-12be14cde4e6",
+    "name": "Pitch Perfect Grounds",
+    "slug": "cricket-ground",
+    "description": "Cricket Ground Master Units",
+    "phone": "+91 98401 00000",
+    "address": "Main Sports Avenue",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "postalCode": "600001",
+    "latitude": 13.0827,
+    "longitude": 80.2707,
+    "rating": 4.9,
+    "reviewCount": 35,
+    "isVerified": true,
+    "logoUrl": "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=1200&q=80"
+    ]
+  },
+  {
+    "id": "1ededc46-c2c0-1e09-a0be-30c4b441bbae",
+    "name": "Grand Slam Club",
+    "slug": "tennis",
+    "description": "Tennis Court Master Units",
+    "phone": "+91 98401 00000",
+    "address": "Main Sports Avenue",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "postalCode": "600001",
+    "latitude": 13.0827,
+    "longitude": 80.2707,
+    "rating": 4.9,
+    "reviewCount": 35,
+    "isVerified": true,
+    "logoUrl": "https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?w=1200&q=80"
+    ]
+  },
+  {
+    "id": "10af45e9-939e-0b14-5bd6-c4b21fb3fe8a",
+    "name": "Blue Wave Pool",
+    "slug": "swimming",
+    "description": "Swimming Pool Master Units",
+    "phone": "+91 98401 00000",
+    "address": "Main Sports Avenue",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "postalCode": "600001",
+    "latitude": 13.0827,
+    "longitude": 80.2707,
+    "rating": 4.9,
+    "reviewCount": 35,
+    "isVerified": true,
+    "logoUrl": "https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?w=1200&q=80"
+    ]
+  },
+  {
+    "id": "bdb9deee-6122-12de-c16b-26fad5fb0028",
+    "name": "JumpZone Park",
+    "slug": "play-arena",
+    "description": "Indoor Play Arena Master Units",
+    "phone": "+91 98401 00000",
+    "address": "Main Sports Avenue",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "postalCode": "600001",
+    "latitude": 13.0827,
+    "longitude": 80.2707,
+    "rating": 4.9,
+    "reviewCount": 35,
+    "isVerified": true,
+    "logoUrl": "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=1200&q=80"
+    ]
+  },
+  {
+    "id": "b23bbd1f-3c8d-56dd-7143-e34153dec1fd",
+    "name": "Grand Temple Restaurant",
+    "slug": "dining",
+    "description": "Authentic heritage dining & rooftop table reservations.",
+    "phone": "+91 98401 44444",
+    "address": "24 South Mada Street, Mylapore",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "postalCode": "600004",
+    "latitude": 13.0334,
+    "longitude": 80.2678,
+    "rating": 4.8,
+    "reviewCount": 840,
+    "isVerified": true,
+    "logoUrl": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80"
+    ]
+  },
+  {
+    "id": "18bc5a90-2570-dd5a-eba7-b5c244f6147c",
+    "name": "Style Studio",
+    "slug": "salons",
+    "description": "Premium salon treatments and urban spa rituals.",
+    "phone": "+91 98401 33333",
+    "address": "18 Khader Nawaz Khan Road, Nungambakkam",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "postalCode": "600006",
+    "latitude": 13.0604,
+    "longitude": 80.2496,
+    "rating": 4.9,
+    "reviewCount": 620,
+    "isVerified": true,
+    "logoUrl": "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&q=80"
+    ]
+  },
+  {
+    "id": "f2a14cc0-5f78-aff0-8665-b91d0a464e5f",
+    "name": "ZenFit Clinic",
+    "slug": "gym-yoga",
+    "description": "State-of-the-art gym floor, functional turf, and authentic yoga batches.",
+    "phone": "+91 98401 22222",
+    "address": "12 100 Feet Road, Velachery",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "postalCode": "600042",
+    "latitude": 12.9716,
+    "longitude": 80.2435,
+    "rating": 4.8,
+    "reviewCount": 450,
+    "isVerified": true,
+    "logoUrl": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=80"
+    ]
+  },
+  {
+    "id": "6e2a5d5e-0c09-63ca-11ab-81e24d60f77a",
+    "name": "Apollo Dental",
+    "slug": "doctor",
+    "description": "Comprehensive multi-specialty dental & clinical OPD.",
+    "phone": "+91 98401 11111",
+    "address": "45 Greams Road, Thousand Lights",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "postalCode": "600006",
+    "latitude": 13.0418,
+    "longitude": 80.2341,
+    "rating": 4.9,
+    "reviewCount": 520,
+    "isVerified": true,
+    "logoUrl": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1200&q=80"
+    ]
+  },
+  {
+    "id": "e4a69557-1b75-5404-9257-01419210fba0",
+    "name": "Nataka Kala Rangam",
+    "slug": "theatre",
+    "description": "Nataka Kala Rangam Live Theatre",
+    "phone": "+91 98401 99999",
+    "address": "Entertainment Hub Avenue",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "postalCode": "600001",
+    "latitude": 13.0827,
+    "longitude": 80.2707,
+    "rating": 4.8,
+    "reviewCount": 300,
+    "isVerified": true,
+    "logoUrl": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&q=80"
+    ]
+  },
+  {
+    "id": "6043fd64-f325-5583-8946-e0bbb75f26ce",
+    "name": "VibeNation Live Events",
+    "slug": "concerts",
+    "description": "VibeNation Arena Live Concerts",
+    "phone": "+91 98401 99999",
+    "address": "Entertainment Hub Avenue",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "postalCode": "600001",
+    "latitude": 13.0827,
+    "longitude": 80.2707,
+    "rating": 4.8,
+    "reviewCount": 300,
+    "isVerified": true,
+    "logoUrl": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&q=80"
+    ]
+  },
+  {
+    "id": "992e0ecc-caa7-52c5-9cb8-eb151d8048bd",
+    "name": "Grand Fiesta Carnival",
+    "slug": "events",
+    "description": "Grand Fiesta Carnival & Cultural Fest",
+    "phone": "+91 98401 99999",
+    "address": "Entertainment Hub Avenue",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "postalCode": "600001",
+    "latitude": 13.0827,
+    "longitude": 80.2707,
+    "rating": 4.8,
+    "reviewCount": 300,
+    "isVerified": true,
+    "logoUrl": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&q=80"
+    ]
+  },
+  {
+    "id": "23c3e74f-1cdd-5a44-9756-76afcafd8e36",
+    "name": "Pragati Trade Expo",
+    "slug": "exhibitions",
+    "description": "Pragati Trade Expo & Gallery",
+    "phone": "+91 98401 99999",
+    "address": "Entertainment Hub Avenue",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "postalCode": "600001",
+    "latitude": 13.0827,
+    "longitude": 80.2707,
+    "rating": 4.8,
+    "reviewCount": 300,
+    "isVerified": true,
+    "logoUrl": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&q=80"
+    ]
+  },
+  {
+    "id": "4d4ba8c4-4b45-54ab-89e0-3f89606bd1e9",
+    "name": "Creative Canvas Hub",
+    "slug": "workshops",
+    "description": "Creative Canvas Masterclasses",
+    "phone": "+91 98401 99999",
+    "address": "Entertainment Hub Avenue",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "postalCode": "600001",
+    "latitude": 13.0827,
+    "longitude": 80.2707,
+    "rating": 4.8,
+    "reviewCount": 300,
+    "isVerified": true,
+    "logoUrl": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&q=80"
+    ]
+  },
+  {
+    "id": "5ef7ac5b-f41e-d1bd-8741-498129d65866",
+    "name": "Cyber Core Cafe",
+    "slug": "gaming",
+    "description": "Cyber Core Cafe RTX 4090 Arena",
+    "phone": "+91 98401 99999",
+    "address": "Entertainment Hub Avenue",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "postalCode": "600001",
+    "latitude": 13.0827,
+    "longitude": 80.2707,
+    "rating": 4.8,
+    "reviewCount": 300,
+    "isVerified": true,
+    "logoUrl": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&q=80"
+    ]
   }
 ]
