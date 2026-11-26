@@ -2092,7 +2092,7 @@
     "description": "Premium salon treatments and urban spa rituals.",
     "basePrice": 499,
     "price": 499,
-    "durationMinutes": 45,
+    "durationMinutes": 30,
     "images": [
       "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&q=80"
     ],
@@ -2124,17 +2124,11 @@
           "originalPrice": 1200,
           "duration": 45,
           "active": true
-        },
-        {
-          "id": "trt-facial-gold",
-          "name": "24K Gold Luxury Radiance Facial",
-          "price": 1499,
-          "originalPrice": 2000,
-          "duration": 60,
-          "active": true
         }
       ],
-      "isWellness": true
+      "isWellness": true,
+      "facilityName": "Style Studio",
+      "mainImageUrl": "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&q=80"
     },
     "isActive": true,
     "rating": 4.9,
@@ -2153,7 +2147,24 @@
       "longitude": 80.2496,
       "services": []
     },
-    "createdAt": "2026-11-24T05:50:07.616Z"
+    "createdAt": "2026-11-24T05:50:07.616Z",
+    "categoryId": "712cb562-7f6a-4fea-9145-00c6da59ebc3",
+    "shortDescription": "Premium salon treatments and urban spa rituals.",
+    "maxCapacity": 1,
+    "isTimingEnabled": false,
+    "timingDetails": "",
+    "isCapacityEnabled": false,
+    "participantCapacity": 0,
+    "isAddonsEnabled": false,
+    "addOns": [],
+    "isTipsEnabled": false,
+    "tipsAndGuidelines": "",
+    "isRestrictionsEnabled": false,
+    "restrictions": "",
+    "isOffersEnabled": false,
+    "offersAndDiscounts": "",
+    "isInstructionsEnabled": false,
+    "specialInstructions": ""
   },
   {
     "id": "svc-fitness-f202",
