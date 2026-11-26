@@ -355,21 +355,106 @@
     "specialInstructions": ""
   },
   {
-    "id": "svc-1795585896487",
-    "merchantId": "y1014cc0-5f78-aff0-8665-b91d0a464e5f",
+    "id": "svc-1795682667904",
+    "merchantId": "f2a14cc0-5f78-aff0-8665-b91d0a464e5f",
     "name": "Gym Floor & Membership Booking",
     "slug": "gym-floor-membership-booking",
     "description": "No description provided for this category.",
-    "basePrice": 0,
+    "basePrice": 299,
     "price": 0,
-    "durationMinutes": 30,
+    "durationMinutes": 90,
     "images": [],
     "metadata": {
       "isCustomCategory": false,
-      "locationArea": "Madurai",
-      "merchantName": "Gym Floor & Membership Booking - Madurai",
+      "locationArea": "Chennai",
+      "merchantName": "ZenFit Clinic",
       "originalCategory": "Gym Floor & Membership Booking",
-      "listings": []
+      "listings": [
+        {
+          "id": "list-1795683489211",
+          "name": "one day Trail",
+          "price": 299,
+          "originalPrice": 499,
+          "duration": 90,
+          "active": true,
+          "description": "90 mins session • Turnstile pass",
+          "metadata": {
+            "gymFilter": "Gym Floor"
+          }
+        },
+        {
+          "id": "list-1795684188743",
+          "name": "2 day pass",
+          "price": 849,
+          "originalPrice": 1100,
+          "duration": 60,
+          "active": true,
+          "description": "60 mins session • Turnstile pass",
+          "metadata": {
+            "gymFilter": "Gym Floor"
+          }
+        }
+      ],
+      "classPasses": [
+        {
+          "id": "pass-1795684838943",
+          "name": "2 month plan ",
+          "sessions": "Unlimited",
+          "price": 2999,
+          "originalPrice": 3800,
+          "validity": "30 Days Validity",
+          "perk": "free locker + protien box"
+        }
+      ],
+      "merchantId": "f2a14cc0-5f78-aff0-8665-b91d0a464e5f",
+      "facilityName": "ZenFit Clinic",
+      "trainers": [
+        {
+          "id": "trn-1795686767587",
+          "name": "vikram sumit",
+          "title": "gym coach",
+          "experienceYears": 5,
+          "certs": "ACE",
+          "avatar": "data:image/jpeg;base64,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"
+        },
+        {
+          "id": "trn-1795688499323",
+          "name": "Ravichandran",
+          "title": "Strength Coach",
+          "experienceYears": 10,
+          "certs": "ACE",
+          "price": 4000,
+          "priceUnit": "month",
+          "avatar": ""
+        }
+      ],
+      "homeConvenienceFee": 49,
+      "homeMinOrderValue": 399,
+      "gymAmenities": [
+        "Olympic Barbells & Rogue Racks",
+        "Hi-Tech Cardio & Sled Track",
+        "Steam Sauna & Luxury Showers",
+        "InBody Composition Scan",
+        "RFID Smart Lockers",
+        "Valet Parking"
+      ],
+      "salonSchedule": {
+        "openTime": "09:00",
+        "closeTime": "21:00",
+        "slotInterval": 30,
+        "capacity": 2,
+        "breakfastBreak": {
+          "enabled": false,
+          "start": "10:30",
+          "end": "11:00"
+        },
+        "lunchBreak": {
+          "enabled": true,
+          "start": "13:00",
+          "end": "14:00"
+        },
+        "blockedSlotsByDate": {}
+      }
     },
     "isActive": true,
     "rating": 5,
@@ -380,15 +465,32 @@
       "slug": "gym-floor-membership-booking"
     },
     "merchant": {
-      "id": "y1014cc0-5f78-aff0-8665-b91d0a464e5f",
-      "name": "Gym Floor & Membership Booking - Madurai",
+      "id": "f2a14cc0-5f78-aff0-8665-b91d0a464e5f",
+      "name": "ZenFit Clinic",
       "city": "Chennai",
       "rating": 5,
       "latitude": 13.0827,
       "longitude": 80.2707,
       "services": []
     },
-    "createdAt": "2026-11-25T05:51:36.487Z"
+    "createdAt": "2026-11-26T08:44:27.904Z",
+    "categoryId": "712cb562-7f6a-4fea-9145-00c6da59ebc3",
+    "shortDescription": "No description provided for this category.",
+    "maxCapacity": 1,
+    "isTimingEnabled": false,
+    "timingDetails": "",
+    "isCapacityEnabled": false,
+    "participantCapacity": 0,
+    "isAddonsEnabled": false,
+    "addOns": [],
+    "isTipsEnabled": false,
+    "tipsAndGuidelines": "",
+    "isRestrictionsEnabled": false,
+    "restrictions": "",
+    "isOffersEnabled": false,
+    "offersAndDiscounts": "",
+    "isInstructionsEnabled": false,
+    "specialInstructions": ""
   },
   {
     "id": "svc-football-turf-t102",
@@ -2169,54 +2271,44 @@
   {
     "id": "svc-fitness-f202",
     "merchantId": "f2a14cc0-5f78-aff0-8665-b91d0a464e5f",
-    "name": "ZenFit Clinic & Yoga Shala",
+    "name": "ZenFit Clinic",
     "slug": "gym-yoga",
-    "description": "State-of-the-art gym floor, functional turf, and authentic yoga batches.",
-    "basePrice": 299,
+    "description": "Active bookable units and passes for Gym / Yoga Slot Booking.",
+    "basePrice": 350,
     "price": 299,
     "durationMinutes": 60,
     "images": [
-      "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=80"
+      "https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1200&q=80"
     ],
     "metadata": {
       "merchantId": "f2a14cc0-5f78-aff0-8665-b91d0a464e5f",
       "merchantName": "ZenFit Clinic",
       "originalCategory": "Gym / Yoga Slot Booking",
-      "listings": [
+      "listings": [],
+      "isFitness": true,
+      "branchId": "main-branch",
+      "classPasses": [
         {
-          "id": "pass-open-gym",
-          "name": "Day Pass (Full Open Gym & Steam)",
-          "price": 299,
-          "originalPrice": 400,
-          "duration": 60,
-          "active": true
+          "id": "pass-5-classes",
+          "name": "5-Class Flexible Pass",
+          "sessions": "5 Classes",
+          "price": 1799,
+          "originalPrice": 2250,
+          "validity": "45 Days Validity",
+          "perk": "Flexible morning/evening access"
         },
         {
-          "id": "pass-hiit-crossfit",
-          "name": "CrossFit & Functional Training Session",
-          "price": 399,
-          "originalPrice": 500,
-          "duration": 60,
-          "active": true
-        },
-        {
-          "id": "batch-sunrise",
-          "name": "Pranayama & Hatha Yoga Sunrise Batch",
-          "price": 349,
-          "originalPrice": 450,
-          "duration": 60,
-          "active": true
-        },
-        {
-          "id": "gym-plan-1m",
-          "name": "1-Month Unlimited All-Access Pass",
-          "price": 2499,
-          "originalPrice": 3000,
-          "duration": 30,
-          "active": true
+          "id": "pass-3m-1795681468511",
+          "name": "3-Month Unlimited Sadhana Pass",
+          "sessions": "Unlimited",
+          "price": 7999,
+          "originalPrice": 9999,
+          "validity": "90 Days Validity",
+          "perk": "Free Studio Locker + Guru Consultation"
         }
       ],
-      "isFitness": true
+      "facilityName": "ZenFit Clinic",
+      "mainImageUrl": "https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1200&q=80"
     },
     "isActive": true,
     "rating": 4.8,
@@ -2235,7 +2327,24 @@
       "longitude": 80.2435,
       "services": []
     },
-    "createdAt": "2026-11-24T05:59:27.819Z"
+    "createdAt": "2026-11-24T05:59:27.819Z",
+    "categoryId": "712cb562-7f6a-4fea-9145-00c6da59ebc3",
+    "shortDescription": "Active bookable units and passes for Gym / Yoga Slot Booking.",
+    "maxCapacity": 1,
+    "isTimingEnabled": false,
+    "timingDetails": "",
+    "isCapacityEnabled": false,
+    "participantCapacity": 0,
+    "isAddonsEnabled": false,
+    "addOns": [],
+    "isTipsEnabled": false,
+    "tipsAndGuidelines": "",
+    "isRestrictionsEnabled": false,
+    "restrictions": "",
+    "isOffersEnabled": false,
+    "offersAndDiscounts": "",
+    "isInstructionsEnabled": false,
+    "specialInstructions": ""
   },
   {
     "id": "svc-doctor-d101",
