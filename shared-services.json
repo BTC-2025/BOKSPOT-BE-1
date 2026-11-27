@@ -2369,7 +2369,13 @@
           "price": 600,
           "originalPrice": 800,
           "duration": 20,
-          "active": true
+          "active": true,
+          "description": "",
+          "metadata": {
+            "salonCategory": "Cardiologist",
+            "genderTarget": "UNISEX",
+            "serviceMode": "BOTH"
+          }
         },
         {
           "id": "doc-priya",
@@ -2377,10 +2383,18 @@
           "price": 450,
           "originalPrice": 600,
           "duration": 20,
-          "active": true
+          "active": true,
+          "description": "",
+          "metadata": {
+            "salonCategory": "Dental",
+            "genderTarget": "UNISEX",
+            "serviceMode": "BOTH"
+          }
         }
       ],
-      "isDoctor": true
+      "isDoctor": true,
+      "facilityName": "Apollo Dental",
+      "mainImageUrl": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1200&q=80"
     },
     "isActive": true,
     "rating": 4.9,
@@ -2399,7 +2413,24 @@
       "longitude": 80.2341,
       "services": []
     },
-    "createdAt": "2026-11-24T06:07:33.276Z"
+    "createdAt": "2026-11-24T06:07:33.276Z",
+    "categoryId": "712cb562-7f6a-4fea-9145-00c6da59ebc3",
+    "shortDescription": "Comprehensive multi-specialty dental & clinical OPD.",
+    "maxCapacity": 1,
+    "isTimingEnabled": false,
+    "timingDetails": "",
+    "isCapacityEnabled": false,
+    "participantCapacity": 0,
+    "isAddonsEnabled": false,
+    "addOns": [],
+    "isTipsEnabled": false,
+    "tipsAndGuidelines": "",
+    "isRestrictionsEnabled": false,
+    "restrictions": "",
+    "isOffersEnabled": false,
+    "offersAndDiscounts": "",
+    "isInstructionsEnabled": false,
+    "specialInstructions": ""
   },
   {
     "id": "svc-movies-m101",
