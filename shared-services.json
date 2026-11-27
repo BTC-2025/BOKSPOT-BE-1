@@ -2374,7 +2374,24 @@
           "metadata": {
             "salonCategory": "Cardiologist",
             "genderTarget": "UNISEX",
-            "serviceMode": "BOTH"
+            "serviceMode": "BOTH",
+            "salonSchedule": {
+              "openTime": "09:00",
+              "closeTime": "21:00",
+              "slotInterval": 30,
+              "capacity": 2,
+              "breakfastBreak": {
+                "enabled": false,
+                "start": "10:30",
+                "end": "11:00"
+              },
+              "lunchBreak": {
+                "enabled": true,
+                "start": "13:00",
+                "end": "14:00"
+              },
+              "blockedSlotsByDate": {}
+            }
           }
         },
         {
@@ -2388,7 +2405,24 @@
           "metadata": {
             "salonCategory": "Dental",
             "genderTarget": "UNISEX",
-            "serviceMode": "BOTH"
+            "serviceMode": "BOTH",
+            "salonSchedule": {
+              "openTime": "09:00",
+              "closeTime": "21:00",
+              "slotInterval": 30,
+              "capacity": 2,
+              "breakfastBreak": {
+                "enabled": false,
+                "start": "10:30",
+                "end": "11:00"
+              },
+              "lunchBreak": {
+                "enabled": true,
+                "start": "13:00",
+                "end": "14:00"
+              },
+              "blockedSlotsByDate": {}
+            }
           }
         }
       ],
